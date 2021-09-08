@@ -21,7 +21,7 @@ namespace Zork
                         outputString = "Thank you for playing.";
                         break;
                     case Commands.LOOK:
-                        outputString = "This is anopen field west of a white house,with a boarded front door.\n Arubber mat saying'Welcome to Zork' lies by the door.";
+                        outputString = "This is anopen field west of a white house,with a boarded front door.\nArubber mat saying'Welcome to Zork' lies by the door.";
 
                         break;
                     case Commands.NORTH:
