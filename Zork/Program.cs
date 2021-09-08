@@ -9,7 +9,7 @@ namespace Zork
         {
             get
             {
-                return Rooms[LocationColumn];
+                return Rooms[LocationRow, LocationColumn];
             }
         }
         static void Main(string[] args)
@@ -85,5 +85,6 @@ namespace Zork
 
 
     private static int LocationColumn = 1;
+    private static int LocationRow = 0;
     }
 }
