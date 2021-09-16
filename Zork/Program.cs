@@ -39,8 +39,6 @@ namespace Zork
                         outputString = Move(command) ? $"you moved {command}," : "The way is shut!";
                         break;
 
-
-
                     default:
                         outputString = "Unrecognized command";
                         break;                                         
@@ -59,11 +57,16 @@ namespace Zork
 
             switch (command)
             {
-                case Commands.NORTH:
-                case Commands.SOUTH:
+                case Commands.NORTH when (LocationRow < Rooms.GetLength(0) - 1):
+                    LocationRow++;
+                    didMove = true;
+                        break;
+                case Commands.SOUTH when (LocationRow > 0):
+                    LocationRow--;
+                    didMove = true;
                     break;
 
-                case Commands.EAST when LocationColumn < Rooms.GetLength(1) - 1:
+                case Commands.EAST when (LocationColumn < Rooms.GetLength(1) - 1):
                     LocationColumn++;
                     didMove = true;
                     break;
@@ -72,8 +75,7 @@ namespace Zork
                     LocationColumn--;
                     didMove = true;
 
-                    break;
-            
+                    break;           
             }
             return didMove;
         }
@@ -83,8 +85,7 @@ namespace Zork
             { "Dense Woods", "North of House", "Clearing"}
         };
 
-
-    private static int LocationColumn = 1;
-    private static int LocationRow = 0;
+    private static int LocationColumn = 1;//this is moving to X
+    private static int LocationRow = 1; //this is moving to Y
     }
 }
