@@ -5,7 +5,7 @@ namespace Zork
     class Program
     {
 
-        private static string Location
+        private static Room Location
         {
             get
             {
@@ -79,10 +79,10 @@ namespace Zork
             }
             return didMove;
         }
-        private static string[,] Rooms = {
-            { "Rocky Trail", "South of House", "Canyon View"},
-            { "Forest", "West of House", "Behind House"},
-            { "Dense Woods", "North of House", "Clearing"}
+        private static readonly Room[,] Rooms = {
+            { new Room("Rocky Trail"), new Room("South of House"), new Room("Canyon View")},
+            { new Room("Forest"), new Room("West of House"), new Room("Behind House")},
+            { new Room("Dense Woods"), new Room("North of House"), new Room("Clearing")}
         };
 
     private static int LocationColumn = 1;//this is moving to X
