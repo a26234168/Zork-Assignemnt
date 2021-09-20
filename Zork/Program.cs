@@ -14,12 +14,13 @@ namespace Zork
         }
         static void Main(string[] args)
         {
+            initial
             Console.WriteLine("Welcome to Zork");
 
             Commands command = Commands.UNKNOWN;
             while (command != Commands.QUIT)
             {
-                Console.Write($"{Location}\n> ");
+                Console.Write($"{Location.Name}\n> ");
                 command = ToCommand(Console.ReadLine().Trim().ToUpper());
 
                 string outputString;
@@ -29,7 +30,9 @@ namespace Zork
                         outputString = "Thank you for playing.";
                         break;
                     case Commands.LOOK:
-                        outputString = "This is anopen field west of a white house,with a boarded front door.\nArubber mat saying'Welcome to Zork' lies by the door.";
+                        outputString = 
+                            
+                            "This is anopen field west of a white house,with a boarded front door.\nArubber mat saying'Welcome to Zork' lies by the door.";
 
                         break;
                     case Commands.NORTH:
@@ -79,6 +82,8 @@ namespace Zork
             }
             return didMove;
         }
+
+        private static void Initialis
         private static readonly Room[,] Rooms = {
             { new Room("Rocky Trail"), new Room("South of House"), new Room("Canyon View")},
             { new Room("Forest"), new Room("West of House"), new Room("Behind House")},
