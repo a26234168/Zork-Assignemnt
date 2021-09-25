@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace Zork
 {
     class Program
@@ -16,13 +17,20 @@ namespace Zork
         static void Main(string[] args)
         {
             InitializeRoomDescriptions();
-            Console.WriteLine("Welcome to Zork");
             Room previousRoom = null;
+
+            Console.WriteLine("Welcome to Zork");
+
             Commands command = Commands.UNKNOWN;
             while (command != Commands.QUIT)
             {
-                Console.Write($"{Location.Name}\n> ");
-                
+                Console.WriteLine(Location.Name);
+                if(previousRoom != Location)
+                {
+                    Console.WriteLine(Location.Description);
+                    previousRoom = Location;
+                }
+                Console.Write("> ");
                 command = ToCommand(Console.ReadLine().Trim().ToUpper());
 
                 string outputString;
@@ -32,19 +40,20 @@ namespace Zork
                         outputString = "Thank you for playing.";
                         break;
                     case Commands.LOOK:
-                        Console.WriteLine(Location.Description);                      
+                        outputString = (Location.Description);
                         break;
                     case Commands.NORTH:
-                    case Commands.SOUTH:                   
-                    case Commands.EAST:                                          
+                    case Commands.SOUTH:
+                    case Commands.EAST:
                     case Commands.WEST:
                         outputString = Move(command) ? $"you moved {command}," : "The way is shut!";
                         break;
 
                     default:
                         outputString = "Unrecognized command";
-                        break;                                         
+                        break;
                 }
+                Console.WriteLine(outputString);
 
             }
         }
@@ -52,7 +61,7 @@ namespace Zork
         {
             return Enum.TryParse<Commands>(commandString, out Commands command) ? command : Commands.UNKNOWN;
         }
-        private  static bool Move(Commands command)
+        private static bool Move(Commands command)
         {
             bool didMove = false;
 
@@ -61,7 +70,7 @@ namespace Zork
                 case Commands.NORTH when (LocationRow < Rooms.GetLength(0) - 1):
                     LocationRow++;
                     didMove = true;
-                        break;
+                    break;
                 case Commands.SOUTH when (LocationRow > 0):
                     LocationRow--;
                     didMove = true;
@@ -76,7 +85,7 @@ namespace Zork
                     LocationColumn--;
                     didMove = true;
 
-                    break;           
+                    break;
             }
             return didMove;
         }
@@ -88,7 +97,6 @@ namespace Zork
             {
                 roomMap.Add(room.Name, room);
             }
-
             roomMap["Rocky Trail"].Description = "You are on a rock-strwn trail.";
             roomMap["South of House"].Description = "You are facing the south side of a white house. There is no door here, and all the windows are barred.";
             roomMap["Canyon View"].Description = "You are at the top of the Great Canyon on its south wall.";
@@ -98,7 +106,7 @@ namespace Zork
             roomMap["Dense Woods"].Description = "This is a dimly lit forest, with large trees all around. To the east, there appears to be sunlight.";
             roomMap["North of House"].Description = "You are facing the north side of a white house. There is no door here, and all the windows are barred";
             roomMap["Clearing"].Description = "You are in a clearing, with a forest surrounding you on the west and south";
-                   
+
         }
         private static readonly Room[,] Rooms = {
             { new Room("Rocky Trail"), new Room("South of House"), new Room("Canyon View")},
@@ -106,7 +114,7 @@ namespace Zork
             { new Room("Dense Woods"), new Room("North of House"), new Room("Clearing")}
         };
 
-    private static int LocationColumn = 1;//this is moving to X
-    private static int LocationRow = 1; //this is moving to Y
+        private static int LocationColumn = 1;//this is moving to X
+        private static int LocationRow = 1; //this is moving to Y
     }
 }
