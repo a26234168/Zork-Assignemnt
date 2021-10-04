@@ -108,21 +108,6 @@ namespace Zork
                 roomMap[room.Name].Description = room.Description;
             }
 
-
-//            string[] lines = File.ReadAllLines(roomDescriptionsFilename);
-//            foreach (string line in lines)
-//            {
-//                const string delimiter = "##";s
-//                const int expectedFieldCount = 2;
-//
-//                string [] fields = line.Split(delimiter);
-//                if (fields.Length != expectedFieldCount)
-//                {
-//                    Console.WriteLine("Invalid record");
-//                }
-//                (string name, string description) = (fields[(int)Fields.Name], fields[(int)Fields.Description]);
-//                roomMap[name].Description = description;
-//            }
         }
         private static readonly Room[,] Rooms = {
             { new Room("Rocky Trail"), new Room("South of House"), new Room("Canyon View")},
