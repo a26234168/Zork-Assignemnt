@@ -95,21 +95,9 @@ namespace Zork
 
         private static void InitializeRoomDescriptions(string roomDescriptionsFilename)
         {
-            var roomMap = new Dictionary<string, Room>();
-            foreach (Room room in Rooms)
-            {
-                roomMap.Add(room.Name, room);
-            }
-
-            string roomsJsonString = File.ReadAllText(roomDescriptionsFilename);
-            Room[] rooms = JsonConvert.DeserializeObject<Room[]>(roomsJsonString);
-            foreach (Room room in rooms)
-            {
-                roomMap[room.Name].Description = room.Description;
-            }
-
+            Rooms = JsonConvert.DeserializeObject<Room[,]>(File.ReadAllText(roomDescriptionsFilename));
         }
-        private static readonly Room[,] Rooms = {
+        private static  Room[,] Rooms = {
             { new Room("Rocky Trail"), new Room("South of House"), new Room("Canyon View")},
             { new Room("Forest"), new Room("West of House"), new Room("Behind House")},
             { new Room("Dense Woods"), new Room("North of House"), new Room("Clearing")}
