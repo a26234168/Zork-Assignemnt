@@ -16,8 +16,12 @@ namespace Zork
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
-            Player = new Player(World, StartingLocation);
+            Player.CurrentRoom = World.RoomsByName[StartingLocation];
+
+            Player = new Player(World);
+
         }
+
         public string WelcomeMessage { get; set; }
         public string ExitMessage { get; set; }
         public void Run()
@@ -35,7 +39,7 @@ namespace Zork
                     Player.PreviousRoom = Player.CurrentRoom;
                 }
                 Console.Write("> ");
-                command = ToCommand(Console.ReadLine().Trim().ToUpper());
+                command = ToCommand(Console.ReadLine().Trim());
 
                 string outputString;
                 switch (command)
@@ -52,14 +56,25 @@ namespace Zork
                         outputString = ExitMessage;
                         break;
                     case Commands.LOOK:
-                        outputString = (Player.CurrentRoom.Description);
+                        outputString = Player.CurrentRoom.Description;
                         Player.move++;
                         break;
+
                     case Commands.NORTH:
                     case Commands.SOUTH:
                     case Commands.EAST:
                     case Commands.WEST:
-                        outputString = Player.Move(command) ? $"you moved {command}," : "The way is shut!";
+                        Direction direction = Enum.Parse<Direction>(command.ToString(), true);
+                        if(Player.Move(direction) == false)
+                        {
+                            outputString = "The way is shut!";
+                        }
+                        else
+                        {
+                            outputString = "";
+                        }
+
+                       // outputString = Player.Move(direction) ? $"you moved {command}," : "The way is shut!";
                         Player.move++;
                         break;
 
@@ -74,9 +89,8 @@ namespace Zork
 
 
         }
-        private static Commands ToCommand(string commandString)
-        {
-            return Enum.TryParse<Commands>(commandString, out Commands command) ? command : Commands.UNKNOWN;
-        }
+        private static Commands ToCommand(string commandString)=> Enum.TryParse<Commands>(commandString,true, out Commands command) ? command : Commands.UNKNOWN;
+        
+             
     }
 }

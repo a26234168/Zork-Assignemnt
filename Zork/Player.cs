@@ -1,75 +1,35 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Linq;
 
 namespace Zork
 {
-    
+
     public class Player
     {
         public int score = 0;
         public int move = 0;
         public World World { get; }
         [JsonIgnore]
-        public Room CurrentRoom
-        {
-            get
-            {
-                return World.Rooms[Location.Row, Location.Column];
-            }
-        }
+        public Room CurrentRoom { get; set; }
+        [JsonIgnore]
 
-        public Room PreviousRoom  { get; set; }
-        
-        public Player(World world, string startingLocation)
+        public Room PreviousRoom { get; set; }
+
+        public Player(World world)
         {
             World = world;
-
-            for (int row = 0; row < World.Rooms.GetLength(0); row++)
-            {
-                for (int column = 0; column < World.Rooms.GetLength(0); column++)
-                {
-                    if (World.Rooms[row,column].Name.Equals(startingLocation, StringComparison.OrdinalIgnoreCase))
-                    {
-                        Location = (row, column);
-                        return;
-                    }
-                }
-            }
         }
 
-
-        public bool Move(Commands command)
+        public bool Move(Direction direction)
         {
-            bool didMove = false;
+            bool isValidMove = CurrentRoom.Neighbors.TryGetValue(direction, out Room neighbor);
 
-            switch (command)
+            if (isValidMove)
             {
-                case Commands.NORTH when (Location.Row < World.Rooms.GetLength(0) - 1):
-                    Location.Row++;
-                    didMove = true;
-                    break;
-                case Commands.SOUTH when (Location.Row > 0):
-                    Location.Row--;
-                    didMove = true;
-                    break;
-
-                case Commands.EAST when (Location.Column < World.Rooms.GetLength(1) - 1):
-                    Location.Column++;
-                    didMove = true;
-                    break;
-
-                case Commands.WEST when (Location.Column > 0):
-                    Location.Column--;
-                    didMove = true;
-
-                    break;
+                CurrentRoom = neighbor;
             }
-            return didMove;
+            return isValidMove;
         }
-
-
-        private (int Row, int Column) Location;
 
     }
 }
+
