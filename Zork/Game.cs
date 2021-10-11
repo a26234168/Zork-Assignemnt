@@ -16,9 +16,10 @@ namespace Zork
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
-            Player.CurrentRoom = World.RoomsByName[StartingLocation];
 
             Player = new Player(World);
+            Player.CurrentRoom = World.RoomsByName[StartingLocation];
+
 
         }
 
