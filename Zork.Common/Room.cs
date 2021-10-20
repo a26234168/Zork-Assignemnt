@@ -24,10 +24,11 @@ namespace Zork
         }
         public void UpdateNeighbors(World world)
         {
+            Neighbors = new Dictionary<Direction, Room>();
+
             foreach (var pair in NeighborsNames)
             {
-                Neighbors = new Dictionary<Direction, Room>();
-                (Directions direction, string name) = (pair, Key, pair.Value);
+                (Direction direction, string name) = (pair.Key, pair.Value);
                 Neighbors.Add(direction, world.RoomsByName[name]);
             
             
