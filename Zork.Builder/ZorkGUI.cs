@@ -16,5 +16,15 @@ namespace Programming
         {
             InitializeComponent();
         }
+
+        private void OpenGameFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Quit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

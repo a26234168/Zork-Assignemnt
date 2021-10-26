@@ -54,6 +54,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.RoomProperty = new System.Windows.Forms.GroupBox();
+            this.DownDropList = new System.Windows.Forms.ComboBox();
+            this.UpDropList = new System.Windows.Forms.ComboBox();
+            this.Down = new System.Windows.Forms.Label();
+            this.Up = new System.Windows.Forms.Label();
             this.SelectRoom = new System.Windows.Forms.Label();
             this.RoomDescription = new System.Windows.Forms.Label();
             this.Neighbors = new System.Windows.Forms.Label();
@@ -70,10 +74,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.Up = new System.Windows.Forms.Label();
-            this.Down = new System.Windows.Forms.Label();
-            this.UpDropList = new System.Windows.Forms.ComboBox();
-            this.DownDropList = new System.Windows.Forms.ComboBox();
+            this.FileSpearator = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.RoomProperties.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -101,6 +102,7 @@
             this.OpenGameFile,
             this.SaveGameFile,
             this.SaveGameFileAs,
+            this.FileSpearator,
             this.Quit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
@@ -109,32 +111,38 @@
             // NewGameFile
             // 
             this.NewGameFile.Name = "NewGameFile";
-            this.NewGameFile.Size = new System.Drawing.Size(180, 22);
+            this.NewGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.NewGameFile.Size = new System.Drawing.Size(202, 22);
             this.NewGameFile.Text = "&New Game";
             // 
             // OpenGameFile
             // 
             this.OpenGameFile.Name = "OpenGameFile";
-            this.OpenGameFile.Size = new System.Drawing.Size(180, 22);
-            this.OpenGameFile.Text = "Open Game...";
+            this.OpenGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.OpenGameFile.Size = new System.Drawing.Size(202, 22);
+            this.OpenGameFile.Text = "&Open Game...";
+            this.OpenGameFile.Click += new System.EventHandler(this.OpenGameFile_Click);
             // 
             // SaveGameFile
             // 
             this.SaveGameFile.Name = "SaveGameFile";
-            this.SaveGameFile.Size = new System.Drawing.Size(180, 22);
+            this.SaveGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.SaveGameFile.Size = new System.Drawing.Size(202, 22);
             this.SaveGameFile.Text = "Save Game";
             // 
             // SaveGameFileAs
             // 
             this.SaveGameFileAs.Name = "SaveGameFileAs";
-            this.SaveGameFileAs.Size = new System.Drawing.Size(180, 22);
+            this.SaveGameFileAs.Size = new System.Drawing.Size(202, 22);
             this.SaveGameFileAs.Text = "Save As...";
             // 
             // Quit
             // 
             this.Quit.Name = "Quit";
-            this.Quit.Size = new System.Drawing.Size(180, 22);
-            this.Quit.Text = "Quit";
+            this.Quit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.Quit.Size = new System.Drawing.Size(202, 22);
+            this.Quit.Text = "&Quit";
+            this.Quit.Click += new System.EventHandler(this.Quit_Click);
             // 
             // HelpTab
             // 
@@ -147,7 +155,7 @@
             // zorkMapToolStripMenuItem
             // 
             this.zorkMapToolStripMenuItem.Name = "zorkMapToolStripMenuItem";
-            this.zorkMapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zorkMapToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.zorkMapToolStripMenuItem.Text = "Zork Map...";
             // 
             // Startlocations
@@ -431,6 +439,60 @@
             this.RoomProperty.TabStop = false;
             this.RoomProperty.Text = "Room Edit";
             // 
+            // DownDropList
+            // 
+            this.DownDropList.FormattingEnabled = true;
+            this.DownDropList.Items.AddRange(new object[] {
+            "North of House",
+            "Sourth of House",
+            "Behind House",
+            "Forest 1",
+            "Forest 2",
+            "Forest 3",
+            "Clearing",
+            "                     "});
+            this.DownDropList.Location = new System.Drawing.Point(255, 345);
+            this.DownDropList.Name = "DownDropList";
+            this.DownDropList.Size = new System.Drawing.Size(127, 21);
+            this.DownDropList.TabIndex = 25;
+            // 
+            // UpDropList
+            // 
+            this.UpDropList.FormattingEnabled = true;
+            this.UpDropList.Items.AddRange(new object[] {
+            "North of House",
+            "Sourth of House",
+            "Behind House",
+            "Forest 1",
+            "Forest 2",
+            "Forest 3",
+            "Clearing",
+            "                     "});
+            this.UpDropList.Location = new System.Drawing.Point(255, 312);
+            this.UpDropList.Name = "UpDropList";
+            this.UpDropList.Size = new System.Drawing.Size(127, 21);
+            this.UpDropList.TabIndex = 24;
+            // 
+            // Down
+            // 
+            this.Down.AutoSize = true;
+            this.Down.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Down.Location = new System.Drawing.Point(199, 343);
+            this.Down.Name = "Down";
+            this.Down.Size = new System.Drawing.Size(50, 20);
+            this.Down.TabIndex = 23;
+            this.Down.Text = "Down";
+            // 
+            // Up
+            // 
+            this.Up.AutoSize = true;
+            this.Up.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Up.Location = new System.Drawing.Point(203, 310);
+            this.Up.Name = "Up";
+            this.Up.Size = new System.Drawing.Size(30, 20);
+            this.Up.TabIndex = 22;
+            this.Up.Text = "Up";
+            // 
             // SelectRoom
             // 
             this.SelectRoom.AutoSize = true;
@@ -592,59 +654,10 @@
             this.label17.TabIndex = 3;
             this.label17.Text = "Number of Rooms";
             // 
-            // Up
+            // FileSpearator
             // 
-            this.Up.AutoSize = true;
-            this.Up.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Up.Location = new System.Drawing.Point(203, 310);
-            this.Up.Name = "Up";
-            this.Up.Size = new System.Drawing.Size(30, 20);
-            this.Up.TabIndex = 22;
-            this.Up.Text = "Up";
-            // 
-            // Down
-            // 
-            this.Down.AutoSize = true;
-            this.Down.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Down.Location = new System.Drawing.Point(199, 343);
-            this.Down.Name = "Down";
-            this.Down.Size = new System.Drawing.Size(50, 20);
-            this.Down.TabIndex = 23;
-            this.Down.Text = "Down";
-            // 
-            // UpDropList
-            // 
-            this.UpDropList.FormattingEnabled = true;
-            this.UpDropList.Items.AddRange(new object[] {
-            "North of House",
-            "Sourth of House",
-            "Behind House",
-            "Forest 1",
-            "Forest 2",
-            "Forest 3",
-            "Clearing",
-            "                     "});
-            this.UpDropList.Location = new System.Drawing.Point(255, 312);
-            this.UpDropList.Name = "UpDropList";
-            this.UpDropList.Size = new System.Drawing.Size(127, 21);
-            this.UpDropList.TabIndex = 24;
-            // 
-            // DownDropList
-            // 
-            this.DownDropList.FormattingEnabled = true;
-            this.DownDropList.Items.AddRange(new object[] {
-            "North of House",
-            "Sourth of House",
-            "Behind House",
-            "Forest 1",
-            "Forest 2",
-            "Forest 3",
-            "Clearing",
-            "                     "});
-            this.DownDropList.Location = new System.Drawing.Point(255, 345);
-            this.DownDropList.Name = "DownDropList";
-            this.DownDropList.Size = new System.Drawing.Size(127, 21);
-            this.DownDropList.TabIndex = 25;
+            this.FileSpearator.Name = "FileSpearator";
+            this.FileSpearator.Size = new System.Drawing.Size(199, 6);
             // 
             // ZorkGUI
             // 
@@ -653,6 +666,7 @@
             this.ClientSize = new System.Drawing.Size(438, 641);
             this.Controls.Add(this.RoomProperties);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "ZorkGUI";
@@ -726,6 +740,7 @@
         private System.Windows.Forms.ComboBox UpDropList;
         private System.Windows.Forms.Label Down;
         private System.Windows.Forms.Label Up;
+        private System.Windows.Forms.ToolStripSeparator FileSpearator;
     }
 }
 
