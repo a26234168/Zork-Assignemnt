@@ -76,6 +76,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             menuStrip = new System.Windows.Forms.MenuStrip();
             NewGameFile = new System.Windows.Forms.ToolStripMenuItem();
             OpenGameFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,7 +99,7 @@
             this.HelpTab});
             menuStrip.Location = new System.Drawing.Point(0, 0);
             menuStrip.Name = "menuStrip";
-            menuStrip.Size = new System.Drawing.Size(438, 25);
+            menuStrip.Size = new System.Drawing.Size(427, 24);
             menuStrip.TabIndex = 0;
             menuStrip.Text = "menuStrip1";
             // 
@@ -107,26 +108,27 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             NewGameFile,
             OpenGameFile,
+            this.toolStripMenuItem1,
             SaveGameFile,
             SaveGameFileAs,
             this.FileSpearator,
             Quit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // NewGameFile
             // 
             NewGameFile.Name = "NewGameFile";
             NewGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            NewGameFile.Size = new System.Drawing.Size(202, 22);
+            NewGameFile.Size = new System.Drawing.Size(189, 22);
             NewGameFile.Text = "&New Game";
             // 
             // OpenGameFile
             // 
             OpenGameFile.Name = "OpenGameFile";
             OpenGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            OpenGameFile.Size = new System.Drawing.Size(202, 22);
+            OpenGameFile.Size = new System.Drawing.Size(189, 22);
             OpenGameFile.Text = "&Open Game...";
             OpenGameFile.Click += new System.EventHandler(this.OpenGameFile_Click);
             // 
@@ -134,25 +136,25 @@
             // 
             SaveGameFile.Name = "SaveGameFile";
             SaveGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            SaveGameFile.Size = new System.Drawing.Size(202, 22);
+            SaveGameFile.Size = new System.Drawing.Size(189, 22);
             SaveGameFile.Text = "Save Game";
             // 
             // SaveGameFileAs
             // 
             SaveGameFileAs.Name = "SaveGameFileAs";
-            SaveGameFileAs.Size = new System.Drawing.Size(202, 22);
+            SaveGameFileAs.Size = new System.Drawing.Size(189, 22);
             SaveGameFileAs.Text = "Save As...";
             // 
             // FileSpearator
             // 
             this.FileSpearator.Name = "FileSpearator";
-            this.FileSpearator.Size = new System.Drawing.Size(199, 6);
+            this.FileSpearator.Size = new System.Drawing.Size(186, 6);
             // 
             // Quit
             // 
             Quit.Name = "Quit";
             Quit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            Quit.Size = new System.Drawing.Size(202, 22);
+            Quit.Size = new System.Drawing.Size(189, 22);
             Quit.Text = "&Quit";
             Quit.Click += new System.EventHandler(this.Quit_Click);
             // 
@@ -161,13 +163,13 @@
             this.HelpTab.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zorkMapToolStripMenuItem});
             this.HelpTab.Name = "HelpTab";
-            this.HelpTab.Size = new System.Drawing.Size(47, 21);
+            this.HelpTab.Size = new System.Drawing.Size(44, 20);
             this.HelpTab.Text = "Help";
             // 
             // zorkMapToolStripMenuItem
             // 
             this.zorkMapToolStripMenuItem.Name = "zorkMapToolStripMenuItem";
-            this.zorkMapToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.zorkMapToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.zorkMapToolStripMenuItem.Text = "Zork Map...";
             // 
             // Startlocations
@@ -326,10 +328,11 @@
             // 
             this.RoomProperties.Controls.Add(this.tabPage5);
             this.RoomProperties.Controls.Add(this.tabPage6);
-            this.RoomProperties.Location = new System.Drawing.Point(12, 28);
+            this.RoomProperties.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RoomProperties.Location = new System.Drawing.Point(0, 24);
             this.RoomProperties.Name = "RoomProperties";
             this.RoomProperties.SelectedIndex = 0;
-            this.RoomProperties.Size = new System.Drawing.Size(418, 606);
+            this.RoomProperties.Size = new System.Drawing.Size(427, 550);
             this.RoomProperties.TabIndex = 11;
             // 
             // tabPage5
@@ -339,7 +342,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(410, 580);
+            this.tabPage5.Size = new System.Drawing.Size(419, 524);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Room Properties";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -352,9 +355,9 @@
             this.RoomsGroup.Controls.Add(this.label4);
             this.RoomsGroup.Controls.Add(this.label3);
             this.RoomsGroup.Controls.Add(this.label2);
-            this.RoomsGroup.Location = new System.Drawing.Point(8, 446);
+            this.RoomsGroup.Location = new System.Drawing.Point(3, 398);
             this.RoomsGroup.Name = "RoomsGroup";
-            this.RoomsGroup.Size = new System.Drawing.Size(389, 123);
+            this.RoomsGroup.Size = new System.Drawing.Size(410, 123);
             this.RoomsGroup.TabIndex = 23;
             this.RoomsGroup.TabStop = false;
             this.RoomsGroup.Text = "Rooms in The World";
@@ -444,9 +447,9 @@
             this.RoomProperty.Controls.Add(this.EditRoomName);
             this.RoomProperty.Controls.Add(this.SelectDropDown);
             this.RoomProperty.Controls.Add(this.Remove);
-            this.RoomProperty.Location = new System.Drawing.Point(10, 6);
+            this.RoomProperty.Location = new System.Drawing.Point(3, 6);
             this.RoomProperty.Name = "RoomProperty";
-            this.RoomProperty.Size = new System.Drawing.Size(393, 424);
+            this.RoomProperty.Size = new System.Drawing.Size(410, 386);
             this.RoomProperty.TabIndex = 22;
             this.RoomProperty.TabStop = false;
             this.RoomProperty.Text = "Room Edit";
@@ -519,7 +522,7 @@
             // 
             this.RoomDescription.AutoSize = true;
             this.RoomDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoomDescription.Location = new System.Drawing.Point(-3, 110);
+            this.RoomDescription.Location = new System.Drawing.Point(3, 109);
             this.RoomDescription.Name = "RoomDescription";
             this.RoomDescription.Size = new System.Drawing.Size(136, 20);
             this.RoomDescription.TabIndex = 19;
@@ -537,7 +540,7 @@
             // 
             // DescriptionBox
             // 
-            this.DescriptionBox.Location = new System.Drawing.Point(1, 141);
+            this.DescriptionBox.Location = new System.Drawing.Point(6, 141);
             this.DescriptionBox.Multiline = true;
             this.DescriptionBox.Name = "DescriptionBox";
             this.DescriptionBox.Size = new System.Drawing.Size(387, 103);
@@ -563,7 +566,7 @@
             // 
             // Add
             // 
-            this.Add.Location = new System.Drawing.Point(1, 71);
+            this.Add.Location = new System.Drawing.Point(6, 71);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(89, 26);
             this.Add.TabIndex = 13;
@@ -599,7 +602,7 @@
             "Forest 3",
             "Clearing",
             "              "});
-            this.SelectDropDown.Location = new System.Drawing.Point(1, 37);
+            this.SelectDropDown.Location = new System.Drawing.Point(6, 37);
             this.SelectDropDown.Name = "SelectDropDown";
             this.SelectDropDown.Size = new System.Drawing.Size(184, 21);
             this.SelectDropDown.TabIndex = 8;
@@ -670,11 +673,16 @@
             // 
             this.openFileDialog.Filter = "JSON Files|*.json";
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(186, 6);
+            // 
             // ZorkGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 641);
+            this.ClientSize = new System.Drawing.Size(427, 574);
             this.Controls.Add(this.RoomProperties);
             this.Controls.Add(menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -746,6 +754,7 @@
         private System.Windows.Forms.Label Up;
         private System.Windows.Forms.ToolStripSeparator FileSpearator;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     }
 }
 
