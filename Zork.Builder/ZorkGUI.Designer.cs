@@ -23,13 +23,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            System.Windows.Forms.MenuStrip menuStrip;
+            System.Windows.Forms.ToolStripMenuItem NewGameFile;
+            System.Windows.Forms.ToolStripMenuItem OpenGameFile;
+            System.Windows.Forms.ToolStripMenuItem SaveGameFile;
+            System.Windows.Forms.ToolStripMenuItem SaveGameFileAs;
+            System.Windows.Forms.ToolStripMenuItem Quit;
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.NewGameFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.OpenGameFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.SaveGameFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.SaveGameFileAs = new System.Windows.Forms.ToolStripMenuItem();
-            this.Quit = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileSpearator = new System.Windows.Forms.ToolStripSeparator();
             this.HelpTab = new System.Windows.Forms.ToolStripMenuItem();
             this.zorkMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Startlocations = new System.Windows.Forms.Label();
@@ -74,8 +75,14 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.FileSpearator = new System.Windows.Forms.ToolStripSeparator();
-            this.menuStrip1.SuspendLayout();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            menuStrip = new System.Windows.Forms.MenuStrip();
+            NewGameFile = new System.Windows.Forms.ToolStripMenuItem();
+            OpenGameFile = new System.Windows.Forms.ToolStripMenuItem();
+            SaveGameFile = new System.Windows.Forms.ToolStripMenuItem();
+            SaveGameFileAs = new System.Windows.Forms.ToolStripMenuItem();
+            Quit = new System.Windows.Forms.ToolStripMenuItem();
+            menuStrip.SuspendLayout();
             this.RoomProperties.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.RoomsGroup.SuspendLayout();
@@ -84,65 +91,70 @@
             ((System.ComponentModel.ISupportInitialize)(this.Roomnumber)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.HelpTab});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(438, 25);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            menuStrip.Location = new System.Drawing.Point(0, 0);
+            menuStrip.Name = "menuStrip";
+            menuStrip.Size = new System.Drawing.Size(438, 25);
+            menuStrip.TabIndex = 0;
+            menuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewGameFile,
-            this.OpenGameFile,
-            this.SaveGameFile,
-            this.SaveGameFileAs,
+            NewGameFile,
+            OpenGameFile,
+            SaveGameFile,
+            SaveGameFileAs,
             this.FileSpearator,
-            this.Quit});
+            Quit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // NewGameFile
             // 
-            this.NewGameFile.Name = "NewGameFile";
-            this.NewGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.NewGameFile.Size = new System.Drawing.Size(202, 22);
-            this.NewGameFile.Text = "&New Game";
+            NewGameFile.Name = "NewGameFile";
+            NewGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            NewGameFile.Size = new System.Drawing.Size(202, 22);
+            NewGameFile.Text = "&New Game";
             // 
             // OpenGameFile
             // 
-            this.OpenGameFile.Name = "OpenGameFile";
-            this.OpenGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.OpenGameFile.Size = new System.Drawing.Size(202, 22);
-            this.OpenGameFile.Text = "&Open Game...";
-            this.OpenGameFile.Click += new System.EventHandler(this.OpenGameFile_Click);
+            OpenGameFile.Name = "OpenGameFile";
+            OpenGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            OpenGameFile.Size = new System.Drawing.Size(202, 22);
+            OpenGameFile.Text = "&Open Game...";
+            OpenGameFile.Click += new System.EventHandler(this.OpenGameFile_Click);
             // 
             // SaveGameFile
             // 
-            this.SaveGameFile.Name = "SaveGameFile";
-            this.SaveGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.SaveGameFile.Size = new System.Drawing.Size(202, 22);
-            this.SaveGameFile.Text = "Save Game";
+            SaveGameFile.Name = "SaveGameFile";
+            SaveGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            SaveGameFile.Size = new System.Drawing.Size(202, 22);
+            SaveGameFile.Text = "Save Game";
             // 
             // SaveGameFileAs
             // 
-            this.SaveGameFileAs.Name = "SaveGameFileAs";
-            this.SaveGameFileAs.Size = new System.Drawing.Size(202, 22);
-            this.SaveGameFileAs.Text = "Save As...";
+            SaveGameFileAs.Name = "SaveGameFileAs";
+            SaveGameFileAs.Size = new System.Drawing.Size(202, 22);
+            SaveGameFileAs.Text = "Save As...";
+            // 
+            // FileSpearator
+            // 
+            this.FileSpearator.Name = "FileSpearator";
+            this.FileSpearator.Size = new System.Drawing.Size(199, 6);
             // 
             // Quit
             // 
-            this.Quit.Name = "Quit";
-            this.Quit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.Quit.Size = new System.Drawing.Size(202, 22);
-            this.Quit.Text = "&Quit";
-            this.Quit.Click += new System.EventHandler(this.Quit_Click);
+            Quit.Name = "Quit";
+            Quit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            Quit.Size = new System.Drawing.Size(202, 22);
+            Quit.Text = "&Quit";
+            Quit.Click += new System.EventHandler(this.Quit_Click);
             // 
             // HelpTab
             // 
@@ -654,10 +666,9 @@
             this.label17.TabIndex = 3;
             this.label17.Text = "Number of Rooms";
             // 
-            // FileSpearator
+            // openFileDialog
             // 
-            this.FileSpearator.Name = "FileSpearator";
-            this.FileSpearator.Size = new System.Drawing.Size(199, 6);
+            this.openFileDialog.Filter = "JSON Files|*.json";
             // 
             // ZorkGUI
             // 
@@ -665,14 +676,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 641);
             this.Controls.Add(this.RoomProperties);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = menuStrip;
             this.MaximizeBox = false;
             this.Name = "ZorkGUI";
             this.Text = "Zork Game Editor";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            menuStrip.ResumeLayout(false);
+            menuStrip.PerformLayout();
             this.RoomProperties.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.RoomsGroup.ResumeLayout(false);
@@ -688,20 +699,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem NewGameFile;
-        private System.Windows.Forms.ToolStripMenuItem OpenGameFile;
-        private System.Windows.Forms.ToolStripMenuItem SaveGameFile;
-        private System.Windows.Forms.ToolStripMenuItem SaveGameFileAs;
         private System.Windows.Forms.ToolStripMenuItem HelpTab;
         private System.Windows.Forms.ToolStripMenuItem zorkMapToolStripMenuItem;
         private System.Windows.Forms.Label Startlocations;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ToolStripMenuItem Quit;
         private System.Windows.Forms.Label West;
         private System.Windows.Forms.Label East;
         private System.Windows.Forms.Label South;
@@ -741,6 +745,7 @@
         private System.Windows.Forms.Label Down;
         private System.Windows.Forms.Label Up;
         private System.Windows.Forms.ToolStripSeparator FileSpearator;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 

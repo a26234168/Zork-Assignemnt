@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Newtonsoft.Json;
+using Zork;
 
 namespace Programming
 {
@@ -19,7 +15,12 @@ namespace Programming
 
         private void OpenGameFile_Click(object sender, EventArgs e)
         {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string JsonString = File.ReadAllText(openFileDialog.FileName);
+                JsonConvert.DeserializeObject<World>(JsonString);
 
+            }
         }
 
         private void Quit_Click(object sender, EventArgs e)
