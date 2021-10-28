@@ -11,7 +11,7 @@ namespace Zork
 
         public Dictionary<string, Room> RoomsByName { get; set; }
 
-
+        public List<Item> Items { get; set; }
 
         [OnDeserialized]
         private void Ondeserialized(StreamingContext context)

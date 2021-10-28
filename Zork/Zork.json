@@ -71,6 +71,17 @@
           "South": "Forest 3"
         }
       }
+    ],
+    "Items": [
+      {
+        "Name": "Rubber Mat"
+      },
+      {
+        "Name": "Mailbox"
+      },
+      {
+        "Name": "Leaflet"
+      }
     ]
   }
 }

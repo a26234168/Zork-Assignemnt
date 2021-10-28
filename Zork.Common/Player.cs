@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Zork
 {
@@ -13,6 +14,9 @@ namespace Zork
         [JsonIgnore]
 
         public Room PreviousRoom { get; set; }
+
+        //New Addition
+        public List<Item> Inventory { get; set; }
 
         public Player(World world)
         {
