@@ -23,6 +23,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.MenuStrip menuStrip;
             System.Windows.Forms.ToolStripMenuItem newGameFile;
             System.Windows.Forms.ToolStripMenuItem openGameFile;
@@ -72,11 +73,12 @@
             this.selectDropDown = new System.Windows.Forms.ComboBox();
             this.removeButton = new System.Windows.Forms.Button();
             this.projectSettings = new System.Windows.Forms.TabPage();
+            this.numberRoomsTextBox = new System.Windows.Forms.TextBox();
             this.exitMessageTextBox = new System.Windows.Forms.TextBox();
             this.exitMessageLabel = new System.Windows.Forms.Label();
             this.numberRoomsLabel = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.numberRoomsTextBox = new System.Windows.Forms.TextBox();
+            this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             menuStrip = new System.Windows.Forms.MenuStrip();
             newGameFile = new System.Windows.Forms.ToolStripMenuItem();
             openGameFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,6 +91,7 @@
             this.roomsGroup.SuspendLayout();
             this.roomProperties.SuspendLayout();
             this.projectSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -173,7 +176,7 @@
             // zorkMapToolStripMenuItem
             // 
             this.zorkMapToolStripMenuItem.Name = "zorkMapToolStripMenuItem";
-            this.zorkMapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zorkMapToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.zorkMapToolStripMenuItem.Text = "Zork Map...";
             // 
             // startLocationLabel
@@ -190,18 +193,11 @@
             // 
             this.startLocationDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.startLocationDropDown.FormattingEnabled = true;
-            this.startLocationDropDown.Items.AddRange(new object[] {
-            "West of House",
-            "North of House",
-            "Behind House",
-            "Forest 1",
-            "Forest 2",
-            "Forest 3",
-            "Clearing"});
             this.startLocationDropDown.Location = new System.Drawing.Point(20, 40);
             this.startLocationDropDown.Name = "startLocationDropDown";
             this.startLocationDropDown.Size = new System.Drawing.Size(151, 21);
             this.startLocationDropDown.TabIndex = 2;
+            this.startLocationDropDown.ValueMember = "Rooms";
             // 
             // welcomeMessageLabel
             // 
@@ -224,69 +220,38 @@
             // WestDropList
             // 
             this.WestDropList.FormattingEnabled = true;
-            this.WestDropList.Items.AddRange(new object[] {
-            "North of House",
-            "Sourth of House",
-            "Behind House",
-            "Forest 1",
-            "Forest 2",
-            "Forest 3",
-            "Clearing",
-            "                     "});
             this.WestDropList.Location = new System.Drawing.Point(255, 280);
             this.WestDropList.Name = "WestDropList";
             this.WestDropList.Size = new System.Drawing.Size(127, 21);
             this.WestDropList.TabIndex = 7;
+            this.WestDropList.ValueMember = "Description";
             // 
             // EastDropList
             // 
             this.EastDropList.FormattingEnabled = true;
-            this.EastDropList.Items.AddRange(new object[] {
-            "North of House",
-            "Sourth of House",
-            "Behind House",
-            "Forest 1",
-            "Forest 2",
-            "Forest 3",
-            "Clearing",
-            "                     "});
             this.EastDropList.Location = new System.Drawing.Point(59, 345);
             this.EastDropList.Name = "EastDropList";
             this.EastDropList.Size = new System.Drawing.Size(126, 21);
             this.EastDropList.TabIndex = 6;
+            this.EastDropList.ValueMember = "Description";
             // 
             // SouthDropList
             // 
             this.SouthDropList.FormattingEnabled = true;
-            this.SouthDropList.Items.AddRange(new object[] {
-            "North of House",
-            "West of House",
-            "Behind House",
-            "Forest 1",
-            "Forest 2",
-            "Forest 3",
-            "Clearing",
-            "            "});
             this.SouthDropList.Location = new System.Drawing.Point(59, 312);
             this.SouthDropList.Name = "SouthDropList";
             this.SouthDropList.Size = new System.Drawing.Size(127, 21);
             this.SouthDropList.TabIndex = 5;
+            this.SouthDropList.ValueMember = "Description";
             // 
             // NorthDropList
             // 
             this.NorthDropList.FormattingEnabled = true;
-            this.NorthDropList.Items.AddRange(new object[] {
-            "Sourth of House",
-            "Behind House",
-            "Forest 1",
-            "Forest 2",
-            "Forest 3",
-            "Clearing",
-            "              "});
             this.NorthDropList.Location = new System.Drawing.Point(59, 280);
             this.NorthDropList.Name = "NorthDropList";
             this.NorthDropList.Size = new System.Drawing.Size(127, 21);
             this.NorthDropList.TabIndex = 4;
+            this.NorthDropList.ValueMember = "Description";
             // 
             // westLabel
             // 
@@ -341,6 +306,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.AutoScroll = true;
             this.tabPage5.Controls.Add(this.roomsGroup);
             this.tabPage5.Controls.Add(this.roomProperties);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
@@ -453,7 +419,7 @@
             this.roomProperties.Controls.Add(this.removeButton);
             this.roomProperties.Location = new System.Drawing.Point(3, 6);
             this.roomProperties.Name = "roomProperties";
-            this.roomProperties.Size = new System.Drawing.Size(410, 386);
+            this.roomProperties.Size = new System.Drawing.Size(474, 386);
             this.roomProperties.TabIndex = 22;
             this.roomProperties.TabStop = false;
             this.roomProperties.Text = "Room Edit";
@@ -461,36 +427,20 @@
             // DownDropList
             // 
             this.DownDropList.FormattingEnabled = true;
-            this.DownDropList.Items.AddRange(new object[] {
-            "North of House",
-            "Sourth of House",
-            "Behind House",
-            "Forest 1",
-            "Forest 2",
-            "Forest 3",
-            "Clearing",
-            "                     "});
             this.DownDropList.Location = new System.Drawing.Point(255, 345);
             this.DownDropList.Name = "DownDropList";
             this.DownDropList.Size = new System.Drawing.Size(127, 21);
             this.DownDropList.TabIndex = 25;
+            this.DownDropList.ValueMember = "Description";
             // 
             // UpDropList
             // 
             this.UpDropList.FormattingEnabled = true;
-            this.UpDropList.Items.AddRange(new object[] {
-            "North of House",
-            "Sourth of House",
-            "Behind House",
-            "Forest 1",
-            "Forest 2",
-            "Forest 3",
-            "Clearing",
-            "                     "});
             this.UpDropList.Location = new System.Drawing.Point(255, 312);
             this.UpDropList.Name = "UpDropList";
             this.UpDropList.Size = new System.Drawing.Size(127, 21);
             this.UpDropList.TabIndex = 24;
+            this.UpDropList.ValueMember = "Description";
             // 
             // downLabel
             // 
@@ -597,19 +547,14 @@
             // 
             // selectDropDown
             // 
+            this.selectDropDown.DataSource = this.roomsBindingSource;
+            this.selectDropDown.DisplayMember = "Name";
             this.selectDropDown.FormattingEnabled = true;
-            this.selectDropDown.Items.AddRange(new object[] {
-            "Sourth of House",
-            "Behind House",
-            "Forest 1",
-            "Forest 2",
-            "Forest 3",
-            "Clearing",
-            "              "});
             this.selectDropDown.Location = new System.Drawing.Point(6, 37);
             this.selectDropDown.Name = "selectDropDown";
             this.selectDropDown.Size = new System.Drawing.Size(184, 21);
             this.selectDropDown.TabIndex = 8;
+            this.selectDropDown.ValueMember = "Description";
             // 
             // removeButton
             // 
@@ -637,6 +582,13 @@
             this.projectSettings.TabIndex = 1;
             this.projectSettings.Text = "Project Settings";
             this.projectSettings.UseVisualStyleBackColor = true;
+            // 
+            // numberRoomsTextBox
+            // 
+            this.numberRoomsTextBox.Location = new System.Drawing.Point(342, 41);
+            this.numberRoomsTextBox.Name = "numberRoomsTextBox";
+            this.numberRoomsTextBox.Size = new System.Drawing.Size(44, 20);
+            this.numberRoomsTextBox.TabIndex = 8;
             // 
             // exitMessageTextBox
             // 
@@ -670,12 +622,9 @@
             // 
             this.openFileDialog.Filter = "JSON Files|*.json";
             // 
-            // numberRoomsTextBox
+            // roomsBindingSource
             // 
-            this.numberRoomsTextBox.Location = new System.Drawing.Point(342, 41);
-            this.numberRoomsTextBox.Name = "numberRoomsTextBox";
-            this.numberRoomsTextBox.Size = new System.Drawing.Size(44, 20);
-            this.numberRoomsTextBox.TabIndex = 8;
+            this.roomsBindingSource.DataSource = typeof(Zork.Common.Room);
             // 
             // ZorkGUI
             // 
@@ -699,6 +648,7 @@
             this.roomProperties.PerformLayout();
             this.projectSettings.ResumeLayout(false);
             this.projectSettings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -753,6 +703,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripSeparator menuSeparator;
         private System.Windows.Forms.TextBox numberRoomsTextBox;
+        private System.Windows.Forms.BindingSource roomsBindingSource;
     }
 }
 

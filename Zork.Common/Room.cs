@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using Newtonsoft.Json;
 
 namespace Zork.Common
 {
-    public class Room
+    public class Room: INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public string Name { get; private set; }
 
         public string Description { get; private set; }

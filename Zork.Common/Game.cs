@@ -1,12 +1,16 @@
 ﻿using Newtonsoft.Json;
+using System;
+using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Collections.Generic;
-using System;
+
 
 namespace Zork.Common
 {
-    public class Game
+    public class Game: INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public World World { get; set; }
 
         public string StartingLocation { get; set; }
@@ -15,6 +19,8 @@ namespace Zork.Common
         public Player Player { get;  set; }
 
         public List<Item> Items { get; }
+
+       
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)

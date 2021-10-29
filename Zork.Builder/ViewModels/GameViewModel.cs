@@ -4,11 +4,13 @@ using Zork.Common;
 
 namespace Zork.Builder
 {
-    internal class GameViewModel
+    internal class GameViewModel: INotifyPropertyChanged
     {
-       
+        public event PropertyChangedEventHandler PropertyChanged;
         public BindingList<Room> Rooms { get; set; }
-        
+        public string StartingLocation { get; set; }
+        public string WelcomeMessage { get; set; }
+        public string ExitMessage { get; set; }
 
         public Game Game
         {
@@ -19,6 +21,9 @@ namespace Zork.Builder
                     _game = value;
                     if (_game != null)
                     {
+                        StartingLocation = _game.StartingLocation;
+                        WelcomeMessage = _game.WelcomeMessage;
+                        ExitMessage = _game.ExitMessage;
                         Rooms = new BindingList<Room>(_game.World.Rooms);
                     }
                     else
