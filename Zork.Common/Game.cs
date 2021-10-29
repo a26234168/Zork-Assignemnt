@@ -14,7 +14,7 @@ namespace Zork.Common
         [JsonIgnore]
         public Player Player { get;  set; }
 
-        public List<Item> Items { get; set; }
+        public List<Item> Items { get; }
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
