@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{72C75CDC-B07B-484B-B999-C96DFA07193E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Programming</RootNamespace>
-    <AssemblyName>Programming</AssemblyName>
+    <RootNamespace>Zork.Builder</RootNamespace>
+    <AssemblyName>Zork.Builder</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -71,6 +71,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ZorkGUI.resx">
       <DependentUpon>ZorkGUI.cs</DependentUpon>

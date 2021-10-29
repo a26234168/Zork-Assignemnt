@@ -1,4 +1,4 @@
-﻿namespace Zork
+﻿namespace Zork.Common
 {
     public enum Commands
     {
@@ -13,19 +13,3 @@
         REWARD
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

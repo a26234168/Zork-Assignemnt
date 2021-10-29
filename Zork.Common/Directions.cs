@@ -1,4 +1,4 @@
-﻿namespace Zork
+﻿namespace Zork.Common
 {
     public enum Direction
     {
@@ -8,5 +8,3 @@
         WEST = Commands.WEST
     }
 }
-
-

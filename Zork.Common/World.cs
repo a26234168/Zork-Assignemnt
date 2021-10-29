@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Zork
+namespace Zork.Common
 
 {
     
@@ -10,8 +10,6 @@ namespace Zork
         public Room[] Rooms { get; set; }
 
         public Dictionary<string, Room> RoomsByName { get; set; }
-
-        public List<Item> Items { get; set; }
 
         [OnDeserialized]
         private void Ondeserialized(StreamingContext context)

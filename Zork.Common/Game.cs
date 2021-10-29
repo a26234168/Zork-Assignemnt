@@ -1,8 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System.Runtime.Serialization;
+using System.Collections.Generic;
 using System;
 
-namespace Zork
+namespace Zork.Common
 {
     public class Game
     {
@@ -13,6 +14,8 @@ namespace Zork
         [JsonIgnore]
         public Player Player { get;  set; }
 
+        public List<Item> Items { get; set; }
+
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
@@ -22,6 +25,7 @@ namespace Zork
 
 
         }
+
 
         public string WelcomeMessage { get; set; }
         public string ExitMessage { get; set; }
