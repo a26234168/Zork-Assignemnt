@@ -61,6 +61,7 @@
             this.projectTab = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.roomsGroup = new System.Windows.Forms.GroupBox();
+            this.CurrentRooom = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -81,7 +82,6 @@
             this.numberRoomsTextBox = new System.Windows.Forms.TextBox();
             this.exitMessageTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.CurrentRooom = new System.Windows.Forms.ListBox();
             menuStrip = new System.Windows.Forms.MenuStrip();
             newGameFile = new System.Windows.Forms.ToolStripMenuItem();
             openGameFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -446,6 +446,17 @@
             this.roomsGroup.TabStop = false;
             this.roomsGroup.Text = "Rooms in The World";
             // 
+            // CurrentRooom
+            // 
+            this.CurrentRooom.DataSource = this.roomsBindingSource;
+            this.CurrentRooom.DisplayMember = "Name";
+            this.CurrentRooom.FormattingEnabled = true;
+            this.CurrentRooom.Location = new System.Drawing.Point(7, 17);
+            this.CurrentRooom.Name = "CurrentRooom";
+            this.CurrentRooom.Size = new System.Drawing.Size(380, 95);
+            this.CurrentRooom.TabIndex = 6;
+            this.CurrentRooom.ValueMember = "Description";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -633,7 +644,7 @@
             this.projectSettings.Location = new System.Drawing.Point(4, 22);
             this.projectSettings.Name = "projectSettings";
             this.projectSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.projectSettings.Size = new System.Drawing.Size(419, 524);
+            this.projectSettings.Size = new System.Drawing.Size(419, 523);
             this.projectSettings.TabIndex = 1;
             this.projectSettings.Text = "Project Settings";
             this.projectSettings.UseVisualStyleBackColor = true;
@@ -657,14 +668,6 @@
             // openFileDialog
             // 
             this.openFileDialog.Filter = "JSON Files|*.json";
-            // 
-            // CurrentRooom
-            // 
-            this.CurrentRooom.FormattingEnabled = true;
-            this.CurrentRooom.Location = new System.Drawing.Point(7, 17);
-            this.CurrentRooom.Name = "CurrentRooom";
-            this.CurrentRooom.Size = new System.Drawing.Size(380, 95);
-            this.CurrentRooom.TabIndex = 6;
             // 
             // ZorkGUI
             // 
