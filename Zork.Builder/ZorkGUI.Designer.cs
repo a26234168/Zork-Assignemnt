@@ -81,6 +81,7 @@
             this.numberRoomsTextBox = new System.Windows.Forms.TextBox();
             this.exitMessageTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.CurrentRooom = new System.Windows.Forms.ListBox();
             menuStrip = new System.Windows.Forms.MenuStrip();
             newGameFile = new System.Windows.Forms.ToolStripMenuItem();
             openGameFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,7 +120,7 @@
             this.helpToolStripMenuItem});
             menuStrip.Location = new System.Drawing.Point(0, 0);
             menuStrip.Name = "menuStrip";
-            menuStrip.Size = new System.Drawing.Size(427, 24);
+            menuStrip.Size = new System.Drawing.Size(427, 25);
             menuStrip.TabIndex = 0;
             menuStrip.Text = "menuStrip1";
             // 
@@ -134,52 +135,52 @@
             this.FileSpearator,
             quitFile});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newGameFile
             // 
             newGameFile.Name = "newGameFile";
             newGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            newGameFile.Size = new System.Drawing.Size(189, 22);
+            newGameFile.Size = new System.Drawing.Size(202, 22);
             newGameFile.Text = "&New Game";
             // 
             // openGameFile
             // 
             openGameFile.Name = "openGameFile";
             openGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            openGameFile.Size = new System.Drawing.Size(189, 22);
+            openGameFile.Size = new System.Drawing.Size(202, 22);
             openGameFile.Text = "&Open Game...";
             openGameFile.Click += new System.EventHandler(this.openGameFile_Click);
             // 
             // menuSeparator
             // 
             this.menuSeparator.Name = "menuSeparator";
-            this.menuSeparator.Size = new System.Drawing.Size(186, 6);
+            this.menuSeparator.Size = new System.Drawing.Size(199, 6);
             // 
             // saveGameFile
             // 
             saveGameFile.Name = "saveGameFile";
             saveGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            saveGameFile.Size = new System.Drawing.Size(189, 22);
+            saveGameFile.Size = new System.Drawing.Size(202, 22);
             saveGameFile.Text = "Save Game";
             // 
             // saveGameFileAs
             // 
             saveGameFileAs.Name = "saveGameFileAs";
-            saveGameFileAs.Size = new System.Drawing.Size(189, 22);
+            saveGameFileAs.Size = new System.Drawing.Size(202, 22);
             saveGameFileAs.Text = "Save As...";
             // 
             // FileSpearator
             // 
             this.FileSpearator.Name = "FileSpearator";
-            this.FileSpearator.Size = new System.Drawing.Size(186, 6);
+            this.FileSpearator.Size = new System.Drawing.Size(199, 6);
             // 
             // quitFile
             // 
             quitFile.Name = "quitFile";
             quitFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            quitFile.Size = new System.Drawing.Size(189, 22);
+            quitFile.Size = new System.Drawing.Size(202, 22);
             quitFile.Text = "&Quit";
             quitFile.Click += new System.EventHandler(this.quitFile_Click);
             // 
@@ -188,13 +189,13 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zorkMapToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // zorkMapToolStripMenuItem
             // 
             this.zorkMapToolStripMenuItem.Name = "zorkMapToolStripMenuItem";
-            this.zorkMapToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.zorkMapToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.zorkMapToolStripMenuItem.Text = "Zork Map...";
             // 
             // startLocationLabel
@@ -410,10 +411,10 @@
             this.projectTab.Controls.Add(this.tabPage5);
             this.projectTab.Controls.Add(this.projectSettings);
             this.projectTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.projectTab.Location = new System.Drawing.Point(0, 24);
+            this.projectTab.Location = new System.Drawing.Point(0, 25);
             this.projectTab.Name = "projectTab";
             this.projectTab.SelectedIndex = 0;
-            this.projectTab.Size = new System.Drawing.Size(427, 550);
+            this.projectTab.Size = new System.Drawing.Size(427, 549);
             this.projectTab.TabIndex = 1;
             // 
             // tabPage5
@@ -424,13 +425,14 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(419, 524);
+            this.tabPage5.Size = new System.Drawing.Size(419, 523);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Room Properties";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // roomsGroup
             // 
+            this.roomsGroup.Controls.Add(this.CurrentRooom);
             this.roomsGroup.Controls.Add(this.label11);
             this.roomsGroup.Controls.Add(this.label10);
             this.roomsGroup.Controls.Add(this.label9);
@@ -450,9 +452,8 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(132, 86);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 17);
+            this.label11.Size = new System.Drawing.Size(0, 17);
             this.label11.TabIndex = 5;
-            this.label11.Text = "Forest3";
             // 
             // label10
             // 
@@ -460,9 +461,8 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(132, 55);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 17);
+            this.label10.Size = new System.Drawing.Size(0, 17);
             this.label10.TabIndex = 4;
-            this.label10.Text = "Forest2";
             // 
             // label9
             // 
@@ -470,9 +470,8 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(132, 26);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 17);
+            this.label9.Size = new System.Drawing.Size(0, 17);
             this.label9.TabIndex = 3;
-            this.label9.Text = "Forest1";
             // 
             // label4
             // 
@@ -480,9 +479,8 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(8, 86);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 17);
+            this.label4.Size = new System.Drawing.Size(0, 17);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Behine House";
             // 
             // label3
             // 
@@ -490,9 +488,8 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(8, 55);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 17);
+            this.label3.Size = new System.Drawing.Size(0, 17);
             this.label3.TabIndex = 1;
-            this.label3.Text = "South of House";
             // 
             // label2
             // 
@@ -500,9 +497,8 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(7, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 17);
+            this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 0;
-            this.label2.Text = "North of House";
             // 
             // roomProperties
             // 
@@ -662,6 +658,14 @@
             // 
             this.openFileDialog.Filter = "JSON Files|*.json";
             // 
+            // CurrentRooom
+            // 
+            this.CurrentRooom.FormattingEnabled = true;
+            this.CurrentRooom.Location = new System.Drawing.Point(7, 17);
+            this.CurrentRooom.Name = "CurrentRooom";
+            this.CurrentRooom.Size = new System.Drawing.Size(380, 95);
+            this.CurrentRooom.TabIndex = 6;
+            // 
             // ZorkGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -730,6 +734,7 @@
         private System.Windows.Forms.BindingSource gameViewModelBindingSource;
         private System.Windows.Forms.BindingSource roomsBindingSource;
         private System.Windows.Forms.BindingSource startingRoomBindingSource;
+        private System.Windows.Forms.ListBox CurrentRooom;
     }
 }
 
