@@ -15,8 +15,6 @@ namespace Zork.Common
 
         public Room PreviousRoom { get; set; }
 
-        public List<Item> Inventory { get; set; }
-
         public Player(World world)
         {
             World = world;

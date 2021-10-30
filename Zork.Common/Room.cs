@@ -8,9 +8,9 @@ namespace Zork.Common
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
-        public string Description { get; private set; }
+        public string Description { get; set; }
         [JsonIgnore]
         public Dictionary<Direction, Room> Neighbors { get; set; }
         [JsonProperty(PropertyName = "Neighbors")]
@@ -26,6 +26,12 @@ namespace Zork.Common
             Description = description;
         
         }
+
+        public Room()
+        {
+
+        }
+
         public void UpdateNeighbors(World world)
         {
             Neighbors = new Dictionary<Direction, Room>();

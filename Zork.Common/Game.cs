@@ -18,8 +18,6 @@ namespace Zork.Common
         [JsonIgnore]
         public Player Player { get;  set; }
 
-        public List<Item> Items { get; }
-
        
 
         [OnDeserialized]
