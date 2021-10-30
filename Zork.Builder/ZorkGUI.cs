@@ -10,7 +10,16 @@ namespace Zork.Builder
     {
         //For the name of the default room you get by clicking addButton.
         private int DefaultNameNumber = 0;
-
+        public string EditName
+        {
+            get => editRoomNameText.Text;
+            set => editRoomNameText.Text = value;
+        }
+        public string SeletRoom
+        {
+            get => selectDropDown.Text;
+            set => selectDropDown.Text = value;
+        }
         private GameViewModel ViewModel 
         {
             get => _viewModel;
@@ -62,7 +71,7 @@ namespace Zork.Builder
 
         private void okButton_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -71,5 +80,13 @@ namespace Zork.Builder
         }
 
         private GameViewModel _viewModel;
+
+        private void editRoomNameText_TextChanged(object sender, EventArgs e)
+        {
+            okButton.Enabled = !string.IsNullOrEmpty(EditName);
+            clearButton.Enabled = !string.IsNullOrEmpty(EditName);
+
+        }
+
     }
 }

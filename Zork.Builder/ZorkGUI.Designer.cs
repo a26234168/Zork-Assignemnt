@@ -610,6 +610,7 @@
             this.editRoomNameText.Name = "editRoomNameText";
             this.editRoomNameText.Size = new System.Drawing.Size(184, 21);
             this.editRoomNameText.TabIndex = 5;
+            this.editRoomNameText.TextChanged += new System.EventHandler(this.editRoomNameText_TextChanged);
             // 
             // selectDropDown
             // 
