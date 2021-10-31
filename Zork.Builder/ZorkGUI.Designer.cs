@@ -82,6 +82,7 @@
             this.numberRoomsTextBox = new System.Windows.Forms.TextBox();
             this.exitMessageTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             menuStrip = new System.Windows.Forms.MenuStrip();
             newGameFile = new System.Windows.Forms.ToolStripMenuItem();
             openGameFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -164,12 +165,14 @@
             saveGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             saveGameFile.Size = new System.Drawing.Size(202, 22);
             saveGameFile.Text = "Save Game";
+            saveGameFile.Click += new System.EventHandler(this.saveGameFile_Click);
             // 
             // saveGameFileAs
             // 
             saveGameFileAs.Name = "saveGameFileAs";
             saveGameFileAs.Size = new System.Drawing.Size(202, 22);
             saveGameFileAs.Text = "Save As...";
+            saveGameFileAs.Click += new System.EventHandler(this.saveGameFileAs_Click);
             // 
             // FileSpearator
             // 
@@ -565,7 +568,7 @@
             // 
             // roomDescriptionTextBox
             // 
-            this.roomDescriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomsBindingSource, "Description", true));
+            this.roomDescriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomsBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.roomDescriptionTextBox.Location = new System.Drawing.Point(6, 141);
             this.roomDescriptionTextBox.Multiline = true;
             this.roomDescriptionTextBox.Name = "roomDescriptionTextBox";
@@ -604,7 +607,7 @@
             // 
             // editRoomNameText
             // 
-            this.editRoomNameText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomsBindingSource, "Name", true));
+            this.editRoomNameText.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.roomsBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.editRoomNameText.Location = new System.Drawing.Point(207, 37);
             this.editRoomNameText.Multiline = true;
             this.editRoomNameText.Name = "editRoomNameText";
@@ -669,6 +672,11 @@
             // openFileDialog
             // 
             this.openFileDialog.Filter = "JSON Files|*.json";
+            // 
+            // saveFileDialog
+            // 
+            this.saveFileDialog.Filter = "JSON Files|*.json";
+            this.saveFileDialog.Title = "Save World as";
             // 
             // ZorkGUI
             // 
@@ -739,6 +747,7 @@
         private System.Windows.Forms.BindingSource roomsBindingSource;
         private System.Windows.Forms.BindingSource startingRoomBindingSource;
         private System.Windows.Forms.ListBox CurrentRooom;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 using Zork.Common;
-
+using Newtonsoft.Json;
+using System.IO;
 namespace Zork.Builder
 {
     internal class GameViewModel: INotifyPropertyChanged
@@ -34,7 +35,28 @@ namespace Zork.Builder
             }
         }
 
+        public static string Filename { get; internal set; }
+
         private Game _game;
+
+        public void SaveWrold()
+        {
+            if (string.IsNullOrEmpty(Filename))
+            {
+                throw new InvalidProgramException("Filename expected");
+            }
+
+            JsonSerializer serializer = new JsonSerializer
+            {
+                Formatting = Formatting.Indented
+            };
+            using (StreamWriter streamWriter = new StreamWriter(Filename))
+            using (JsonWriter jsonWriter = new JsonTextWriter(streamWriter))
+            {
+                serializer.Serialize(jsonWriter, _game);
+            }
+        }
+
     }
 }
 
