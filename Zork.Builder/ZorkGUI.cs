@@ -54,8 +54,8 @@ namespace Zork.Builder
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 ViewModel.Game = JsonConvert.DeserializeObject<Game>(File.ReadAllText(openFileDialog.FileName));
-                //ViewModel.Filename = openFileDialog;
-                //Dont know why it wont let me reference Filename
+                GameViewModel.Filename = openFileDialog.FileName;
+                
                 IsWorldLoaded = true;
 
             }

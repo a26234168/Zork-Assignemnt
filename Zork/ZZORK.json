@@ -2,7 +2,7 @@
   "World": {
     "Rooms": [
       {
-        "Name": "West of House",
+        "Name": "West of dsdsd",
         "Description": "This is an open field west of a white house, with a boarded front door.",
         "Neighbors": {
           "NORTH": "North of House",
@@ -71,7 +71,7 @@
     ],
     "RoomsByName": {
       "West of House": {
-        "Name": "West of House",
+        "Name": "West of dsdsd",
         "Description": "This is an open field west of a white house, with a boarded front door.",
         "Neighbors": {
           "NORTH": "North of House",
