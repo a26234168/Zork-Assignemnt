@@ -22,10 +22,10 @@ namespace Zork.Builder
                     _game = value;
                     if (_game != null)
                     {
-                        StartingLocation = _game.StartingLocation;
-                        WelcomeMessage = _game.WelcomeMessage;
-                        ExitMessage = _game.ExitMessage;
-                        Rooms = new BindingList<Room>(_game.World.Rooms);
+                       StartingLocation = _game.StartingLocation;
+                       WelcomeMessage = _game.WelcomeMessage;
+                       ExitMessage = _game.ExitMessage;
+                       Rooms = new BindingList<Room>(_game.World.Rooms);
                     }
                     else
                     {
@@ -35,28 +35,34 @@ namespace Zork.Builder
             }
         }
 
+        public GameViewModel(Game game = null)
+        {
+            Game = game;
+        }
+
         public static string Filename { get; internal set; }
 
         private Game _game;
 
-        public void SaveWrold()
+        public void SaveWorld()
         {
             if (string.IsNullOrEmpty(Filename))
             {
-                throw new InvalidProgramException("Filename expected");
+                throw new InvalidProgramException("Filename expected.");
             }
 
             JsonSerializer serializer = new JsonSerializer
             {
                 Formatting = Formatting.Indented
             };
+
             using (StreamWriter streamWriter = new StreamWriter(Filename))
+
             using (JsonWriter jsonWriter = new JsonTextWriter(streamWriter))
             {
                 serializer.Serialize(jsonWriter, _game);
             }
         }
-
     }
 }
 

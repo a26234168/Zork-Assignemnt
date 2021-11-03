@@ -43,7 +43,6 @@
             System.Windows.Forms.Label neighborsLabel;
             System.Windows.Forms.Label editRoomNameLabel;
             System.Windows.Forms.Label exitMessageLabel;
-            System.Windows.Forms.Label numberRoomsLabel;
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.FileSpearator = new System.Windows.Forms.ToolStripSeparator();
@@ -54,14 +53,16 @@
             this.startingRoomBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.welcomeMessageTextBox = new System.Windows.Forms.TextBox();
             this.WestDropList = new System.Windows.Forms.ComboBox();
+            this.neighborsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.EastDropList = new System.Windows.Forms.ComboBox();
+            this.neighborsNamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SouthDropList = new System.Windows.Forms.ComboBox();
             this.NorthDropList = new System.Windows.Forms.ComboBox();
             this.projectTab = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.roomsGroup = new System.Windows.Forms.GroupBox();
-            this.CurrentRooom = new System.Windows.Forms.ListBox();
+            this.currentRoomTextbox = new System.Windows.Forms.ListBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -79,7 +80,6 @@
             this.selectDropDown = new System.Windows.Forms.ComboBox();
             this.removeButton = new System.Windows.Forms.Button();
             this.projectSettings = new System.Windows.Forms.TabPage();
-            this.numberRoomsTextBox = new System.Windows.Forms.TextBox();
             this.exitMessageTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
@@ -102,11 +102,12 @@
             neighborsLabel = new System.Windows.Forms.Label();
             editRoomNameLabel = new System.Windows.Forms.Label();
             exitMessageLabel = new System.Windows.Forms.Label();
-            numberRoomsLabel = new System.Windows.Forms.Label();
             menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gameViewModelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingRoomBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.neighborsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.neighborsNamesBindingSource)).BeginInit();
             this.projectTab.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.roomsGroup.SuspendLayout();
@@ -121,7 +122,7 @@
             this.helpToolStripMenuItem});
             menuStrip.Location = new System.Drawing.Point(0, 0);
             menuStrip.Name = "menuStrip";
-            menuStrip.Size = new System.Drawing.Size(427, 25);
+            menuStrip.Size = new System.Drawing.Size(427, 24);
             menuStrip.TabIndex = 0;
             menuStrip.Text = "menuStrip1";
             // 
@@ -136,69 +137,69 @@
             this.FileSpearator,
             quitFile});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
             // 
             // newGameFile
             // 
             newGameFile.Name = "newGameFile";
             newGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            newGameFile.Size = new System.Drawing.Size(202, 22);
+            newGameFile.Size = new System.Drawing.Size(189, 22);
             newGameFile.Text = "&New Game";
             // 
             // openGameFile
             // 
             openGameFile.Name = "openGameFile";
             openGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            openGameFile.Size = new System.Drawing.Size(202, 22);
+            openGameFile.Size = new System.Drawing.Size(189, 22);
             openGameFile.Text = "&Open Game...";
-            openGameFile.Click += new System.EventHandler(this.openGameFile_Click);
+            openGameFile.Click += new System.EventHandler(this.OpenGameFile_Click);
             // 
             // menuSeparator
             // 
             this.menuSeparator.Name = "menuSeparator";
-            this.menuSeparator.Size = new System.Drawing.Size(199, 6);
+            this.menuSeparator.Size = new System.Drawing.Size(186, 6);
             // 
             // saveGameFile
             // 
             saveGameFile.Name = "saveGameFile";
             saveGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            saveGameFile.Size = new System.Drawing.Size(202, 22);
-            saveGameFile.Text = "Save Game";
-            saveGameFile.Click += new System.EventHandler(this.saveGameFile_Click);
+            saveGameFile.Size = new System.Drawing.Size(189, 22);
+            saveGameFile.Text = "&Save Game";
+            saveGameFile.Click += new System.EventHandler(this.SaveGameFile_Click);
             // 
             // saveGameFileAs
             // 
             saveGameFileAs.Name = "saveGameFileAs";
-            saveGameFileAs.Size = new System.Drawing.Size(202, 22);
-            saveGameFileAs.Text = "Save As...";
-            saveGameFileAs.Click += new System.EventHandler(this.saveGameFileAs_Click);
+            saveGameFileAs.Size = new System.Drawing.Size(189, 22);
+            saveGameFileAs.Text = "Save &As...";
+            saveGameFileAs.Click += new System.EventHandler(this.SaveGameFileAs_Click);
             // 
             // FileSpearator
             // 
             this.FileSpearator.Name = "FileSpearator";
-            this.FileSpearator.Size = new System.Drawing.Size(199, 6);
+            this.FileSpearator.Size = new System.Drawing.Size(186, 6);
             // 
             // quitFile
             // 
             quitFile.Name = "quitFile";
             quitFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            quitFile.Size = new System.Drawing.Size(202, 22);
+            quitFile.Size = new System.Drawing.Size(189, 22);
             quitFile.Text = "&Quit";
-            quitFile.Click += new System.EventHandler(this.quitFile_Click);
+            quitFile.Click += new System.EventHandler(this.QuitFile_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zorkMapToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // zorkMapToolStripMenuItem
             // 
             this.zorkMapToolStripMenuItem.Name = "zorkMapToolStripMenuItem";
-            this.zorkMapToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.zorkMapToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.zorkMapToolStripMenuItem.Text = "Zork Map...";
             // 
             // startLocationLabel
@@ -331,19 +332,9 @@
             exitMessageLabel.TabIndex = 6;
             exitMessageLabel.Text = "Exit Message :";
             // 
-            // numberRoomsLabel
-            // 
-            numberRoomsLabel.AutoSize = true;
-            numberRoomsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            numberRoomsLabel.Location = new System.Drawing.Point(198, 41);
-            numberRoomsLabel.Name = "numberRoomsLabel";
-            numberRoomsLabel.Size = new System.Drawing.Size(138, 20);
-            numberRoomsLabel.TabIndex = 2;
-            numberRoomsLabel.Text = "Number of Rooms";
-            // 
             // startLocationDropDown
             // 
-            this.startLocationDropDown.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.gameViewModelBindingSource, "StartingLocation", true));
+            this.startLocationDropDown.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gameViewModelBindingSource, "StartingLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.startLocationDropDown.DataSource = this.startingRoomBindingSource;
             this.startLocationDropDown.DisplayMember = "Name";
             this.startLocationDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -365,7 +356,7 @@
             // 
             // welcomeMessageTextBox
             // 
-            this.welcomeMessageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gameViewModelBindingSource, "WelcomeMessage", true));
+            this.welcomeMessageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gameViewModelBindingSource, "WelcomeMessage", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.welcomeMessageTextBox.Location = new System.Drawing.Point(20, 114);
             this.welcomeMessageTextBox.Multiline = true;
             this.welcomeMessageTextBox.Name = "welcomeMessageTextBox";
@@ -374,11 +365,18 @@
             // 
             // WestDropList
             // 
+            this.WestDropList.DataSource = this.neighborsBindingSource;
+            this.WestDropList.DisplayMember = "Name";
             this.WestDropList.FormattingEnabled = true;
             this.WestDropList.Location = new System.Drawing.Point(255, 280);
             this.WestDropList.Name = "WestDropList";
             this.WestDropList.Size = new System.Drawing.Size(127, 21);
             this.WestDropList.TabIndex = 18;
+            this.WestDropList.ValueMember = "Name";
+            // 
+            // neighborsBindingSource
+            // 
+            this.neighborsBindingSource.DataSource = this.roomsBindingSource;
             // 
             // roomsBindingSource
             // 
@@ -387,37 +385,51 @@
             // 
             // EastDropList
             // 
+            this.EastDropList.DataSource = this.neighborsBindingSource;
+            this.EastDropList.DisplayMember = "Name";
             this.EastDropList.FormattingEnabled = true;
             this.EastDropList.Location = new System.Drawing.Point(59, 345);
             this.EastDropList.Name = "EastDropList";
             this.EastDropList.Size = new System.Drawing.Size(126, 21);
             this.EastDropList.TabIndex = 16;
+            this.EastDropList.ValueMember = "Name";
+            // 
+            // neighborsNamesBindingSource
+            // 
+            this.neighborsNamesBindingSource.DataMember = "NeighborsNames";
+            this.neighborsNamesBindingSource.DataSource = this.neighborsBindingSource;
             // 
             // SouthDropList
             // 
+            this.SouthDropList.DataSource = this.neighborsBindingSource;
+            this.SouthDropList.DisplayMember = "Name";
             this.SouthDropList.FormattingEnabled = true;
             this.SouthDropList.Location = new System.Drawing.Point(59, 312);
             this.SouthDropList.Name = "SouthDropList";
             this.SouthDropList.Size = new System.Drawing.Size(127, 21);
             this.SouthDropList.TabIndex = 14;
+            this.SouthDropList.ValueMember = "Name";
             // 
             // NorthDropList
             // 
+            this.NorthDropList.DataSource = this.neighborsBindingSource;
+            this.NorthDropList.DisplayMember = "Name";
             this.NorthDropList.FormattingEnabled = true;
             this.NorthDropList.Location = new System.Drawing.Point(59, 280);
             this.NorthDropList.Name = "NorthDropList";
             this.NorthDropList.Size = new System.Drawing.Size(127, 21);
             this.NorthDropList.TabIndex = 12;
+            this.NorthDropList.ValueMember = "Name";
             // 
             // projectTab
             // 
             this.projectTab.Controls.Add(this.tabPage5);
             this.projectTab.Controls.Add(this.projectSettings);
             this.projectTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.projectTab.Location = new System.Drawing.Point(0, 25);
+            this.projectTab.Location = new System.Drawing.Point(0, 24);
             this.projectTab.Name = "projectTab";
             this.projectTab.SelectedIndex = 0;
-            this.projectTab.Size = new System.Drawing.Size(427, 549);
+            this.projectTab.Size = new System.Drawing.Size(427, 550);
             this.projectTab.TabIndex = 1;
             // 
             // tabPage5
@@ -428,14 +440,14 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(419, 523);
+            this.tabPage5.Size = new System.Drawing.Size(419, 524);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Room Properties";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // roomsGroup
             // 
-            this.roomsGroup.Controls.Add(this.CurrentRooom);
+            this.roomsGroup.Controls.Add(this.currentRoomTextbox);
             this.roomsGroup.Controls.Add(this.label11);
             this.roomsGroup.Controls.Add(this.label10);
             this.roomsGroup.Controls.Add(this.label9);
@@ -449,16 +461,16 @@
             this.roomsGroup.TabStop = false;
             this.roomsGroup.Text = "Rooms in The World";
             // 
-            // CurrentRooom
+            // currentRoomTextbox
             // 
-            this.CurrentRooom.DataSource = this.roomsBindingSource;
-            this.CurrentRooom.DisplayMember = "Name";
-            this.CurrentRooom.FormattingEnabled = true;
-            this.CurrentRooom.Location = new System.Drawing.Point(7, 17);
-            this.CurrentRooom.Name = "CurrentRooom";
-            this.CurrentRooom.Size = new System.Drawing.Size(380, 95);
-            this.CurrentRooom.TabIndex = 6;
-            this.CurrentRooom.ValueMember = "Description";
+            this.currentRoomTextbox.DataSource = this.roomsBindingSource;
+            this.currentRoomTextbox.DisplayMember = "Name";
+            this.currentRoomTextbox.FormattingEnabled = true;
+            this.currentRoomTextbox.Location = new System.Drawing.Point(7, 17);
+            this.currentRoomTextbox.Name = "currentRoomTextbox";
+            this.currentRoomTextbox.Size = new System.Drawing.Size(380, 95);
+            this.currentRoomTextbox.TabIndex = 6;
+            this.currentRoomTextbox.SelectedIndexChanged += new System.EventHandler(this.CurrentRoomTextbox_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -548,23 +560,25 @@
             // 
             // DownDropList
             // 
-            this.DownDropList.DisplayMember = "Description";
+            this.DownDropList.DataSource = this.neighborsBindingSource;
+            this.DownDropList.DisplayMember = "Name";
             this.DownDropList.FormattingEnabled = true;
             this.DownDropList.Location = new System.Drawing.Point(255, 345);
             this.DownDropList.Name = "DownDropList";
             this.DownDropList.Size = new System.Drawing.Size(127, 21);
             this.DownDropList.TabIndex = 22;
-            this.DownDropList.ValueMember = "Description";
+            this.DownDropList.ValueMember = "Name";
             // 
             // UpDropList
             // 
-            this.UpDropList.DisplayMember = "Description";
+            this.UpDropList.DataSource = this.neighborsBindingSource;
+            this.UpDropList.DisplayMember = "Name";
             this.UpDropList.FormattingEnabled = true;
             this.UpDropList.Location = new System.Drawing.Point(255, 312);
             this.UpDropList.Name = "UpDropList";
             this.UpDropList.Size = new System.Drawing.Size(127, 21);
             this.UpDropList.TabIndex = 20;
-            this.UpDropList.ValueMember = "Description";
+            this.UpDropList.ValueMember = "Name";
             // 
             // roomDescriptionTextBox
             // 
@@ -583,7 +597,7 @@
             this.clearButton.TabIndex = 7;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // okButton
             // 
@@ -593,7 +607,7 @@
             this.okButton.TabIndex = 6;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // addButton
             // 
@@ -603,7 +617,7 @@
             this.addButton.TabIndex = 2;
             this.addButton.Text = "&Add";
             this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // editRoomNameText
             // 
@@ -613,7 +627,7 @@
             this.editRoomNameText.Name = "editRoomNameText";
             this.editRoomNameText.Size = new System.Drawing.Size(184, 21);
             this.editRoomNameText.TabIndex = 5;
-            this.editRoomNameText.TextChanged += new System.EventHandler(this.editRoomNameText_TextChanged);
+            this.editRoomNameText.TextChanged += new System.EventHandler(this.EditRoomNameText_TextChanged);
             // 
             // selectDropDown
             // 
@@ -633,14 +647,12 @@
             this.removeButton.TabIndex = 3;
             this.removeButton.Text = "&Remove";
             this.removeButton.UseVisualStyleBackColor = true;
-            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            this.removeButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
             // projectSettings
             // 
-            this.projectSettings.Controls.Add(this.numberRoomsTextBox);
             this.projectSettings.Controls.Add(this.exitMessageTextBox);
             this.projectSettings.Controls.Add(exitMessageLabel);
-            this.projectSettings.Controls.Add(numberRoomsLabel);
             this.projectSettings.Controls.Add(startLocationLabel);
             this.projectSettings.Controls.Add(this.startLocationDropDown);
             this.projectSettings.Controls.Add(welcomeMessageLabel);
@@ -648,21 +660,14 @@
             this.projectSettings.Location = new System.Drawing.Point(4, 22);
             this.projectSettings.Name = "projectSettings";
             this.projectSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.projectSettings.Size = new System.Drawing.Size(419, 523);
+            this.projectSettings.Size = new System.Drawing.Size(419, 524);
             this.projectSettings.TabIndex = 1;
             this.projectSettings.Text = "Project Settings";
             this.projectSettings.UseVisualStyleBackColor = true;
             // 
-            // numberRoomsTextBox
-            // 
-            this.numberRoomsTextBox.Location = new System.Drawing.Point(342, 41);
-            this.numberRoomsTextBox.Name = "numberRoomsTextBox";
-            this.numberRoomsTextBox.Size = new System.Drawing.Size(44, 20);
-            this.numberRoomsTextBox.TabIndex = 3;
-            // 
             // exitMessageTextBox
             // 
-            this.exitMessageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gameViewModelBindingSource, "ExitMessage", true));
+            this.exitMessageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.gameViewModelBindingSource, "ExitMessage", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.exitMessageTextBox.Location = new System.Drawing.Point(20, 240);
             this.exitMessageTextBox.Multiline = true;
             this.exitMessageTextBox.Name = "exitMessageTextBox";
@@ -694,7 +699,9 @@
             menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gameViewModelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingRoomBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.neighborsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.neighborsNamesBindingSource)).EndInit();
             this.projectTab.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.roomsGroup.ResumeLayout(false);
@@ -742,12 +749,13 @@
         private System.Windows.Forms.ToolStripSeparator FileSpearator;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripSeparator menuSeparator;
-        private System.Windows.Forms.TextBox numberRoomsTextBox;
-        private System.Windows.Forms.BindingSource gameViewModelBindingSource;
-        private System.Windows.Forms.BindingSource roomsBindingSource;
-        private System.Windows.Forms.BindingSource startingRoomBindingSource;
-        private System.Windows.Forms.ListBox CurrentRooom;
+        private System.Windows.Forms.ListBox currentRoomTextbox;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.BindingSource neighborsBindingSource;
+        private System.Windows.Forms.BindingSource roomsBindingSource;
+        private System.Windows.Forms.BindingSource gameViewModelBindingSource;
+        private System.Windows.Forms.BindingSource startingRoomBindingSource;
+        private System.Windows.Forms.BindingSource neighborsNamesBindingSource;
     }
 }
 

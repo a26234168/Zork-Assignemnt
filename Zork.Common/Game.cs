@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 
-
 namespace Zork.Common
 {
     public class Game: INotifyPropertyChanged
@@ -15,27 +14,21 @@ namespace Zork.Common
 
         public string StartingLocation { get; set; }
 
+        public string WelcomeMessage { get; set; }
+        public string ExitMessage { get; set; }
+
         [JsonIgnore]
         public Player Player { get;  set; }
-
-       
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
-
             Player = new Player(World);
             Player.CurrentRoom = World.RoomsByName[StartingLocation];
-
-
         }
 
-
-        public string WelcomeMessage { get; set; }
-        public string ExitMessage { get; set; }
         public void Run()
         {
-            
             Console.WriteLine(WelcomeMessage);
 
             Commands command = Commands.UNKNOWN;
@@ -93,13 +86,8 @@ namespace Zork.Common
                         break;
                 }
                 Console.WriteLine(outputString);
-
             }
-
-
         }
         private static Commands ToCommand(string commandString)=> Enum.TryParse<Commands>(commandString,true, out Commands command) ? command : Commands.UNKNOWN;
-        
-             
     }
 }

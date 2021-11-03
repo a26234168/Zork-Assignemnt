@@ -11,20 +11,17 @@ namespace Zork.Common
         public string Name { get; set; }
 
         public string Description { get; set; }
+
         [JsonIgnore]
         public Dictionary<Direction, Room> Neighbors { get; set; }
+
         [JsonProperty(PropertyName = "Neighbors")]
         public Dictionary<Direction, string> NeighborsNames { get; set; }
-
-
-
-
 
         public Room(string name,string description = "")
         {
             Name = name;
             Description = description;
-        
         }
 
         public Room()
@@ -40,9 +37,6 @@ namespace Zork.Common
             {
                 (Direction direction, string name) = (pair.Key, pair.Value);
                 Neighbors.Add(direction, world.RoomsByName[name]);
-            
-            
-
             }
         }
 
@@ -50,6 +44,5 @@ namespace Zork.Common
         {
             return Name;
         }
-
     }
 }

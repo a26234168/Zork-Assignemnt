@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 
 namespace Zork.Common
 {
-
     public class Player
     {
         public int score = 0;
@@ -12,7 +11,6 @@ namespace Zork.Common
         [JsonIgnore]
         public Room CurrentRoom { get; set; }
         [JsonIgnore]
-
         public Room PreviousRoom { get; set; }
 
         public Player(World world)
@@ -30,6 +28,5 @@ namespace Zork.Common
             }
             return isValidMove;
         }
-
     }
 }

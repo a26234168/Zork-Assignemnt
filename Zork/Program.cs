@@ -6,7 +6,6 @@ namespace Zork
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             const string defaultGameFilename = "Zork.json";
@@ -14,6 +13,7 @@ namespace Zork
             Game game = JsonConvert.DeserializeObject<Game>(File.ReadAllText(gameFilename));
             game.Run();
         }
+
         private enum CommandLineArguments
         {
             GameFilename = 0
