@@ -6,10 +6,11 @@ namespace Zork.Common
 {
     public class Room: INotifyPropertyChanged
     {
+#pragma warning disable CS0067
         public event PropertyChangedEventHandler PropertyChanged;
+#pragma warning restore CS0067
 
         public string Name { get; set; }
-
         public string Description { get; set; }
 
         [JsonIgnore]

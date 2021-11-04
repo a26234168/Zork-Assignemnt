@@ -7,9 +7,12 @@ namespace Zork.Common
     {
         public int score = 0;
         public int move = 0;
+
         public World World { get; }
+
         [JsonIgnore]
         public Room CurrentRoom { get; set; }
+
         [JsonIgnore]
         public Room PreviousRoom { get; set; }
 
@@ -26,6 +29,7 @@ namespace Zork.Common
             {
                 CurrentRoom = neighbor;
             }
+
             return isValidMove;
         }
     }

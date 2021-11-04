@@ -60,7 +60,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.roomProperties = new System.Windows.Forms.GroupBox();
-            this.directionControl = new Zork.Builder.DirectionControl.DirectionControl();
+            this.downDirectionControl = new Zork.Builder.DirectionControl.DirectionControl();
+            this.upDirectionControl = new Zork.Builder.DirectionControl.DirectionControl();
+            this.westDirectionControl = new Zork.Builder.DirectionControl.DirectionControl();
+            this.southDirectionControl = new Zork.Builder.DirectionControl.DirectionControl();
+            this.eastDirectionControl = new Zork.Builder.DirectionControl.DirectionControl();
+            this.northDirectionControl = new Zork.Builder.DirectionControl.DirectionControl();
             this.roomDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
@@ -72,11 +77,9 @@
             this.exitMessageTextBox = new System.Windows.Forms.TextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.directionControl = new Zork.Builder.DirectionControl.DirectionControl();
             this.directionControl1 = new Zork.Builder.DirectionControl.DirectionControl();
             this.directionControl2 = new Zork.Builder.DirectionControl.DirectionControl();
-            this.directionControl3 = new Zork.Builder.DirectionControl.DirectionControl();
-            this.directionControl4 = new Zork.Builder.DirectionControl.DirectionControl();
-            this.directionControl5 = new Zork.Builder.DirectionControl.DirectionControl();
             menuStrip = new System.Windows.Forms.MenuStrip();
             newGameFile = new System.Windows.Forms.ToolStripMenuItem();
             openGameFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,7 +113,7 @@
             this.helpToolStripMenuItem});
             menuStrip.Location = new System.Drawing.Point(0, 0);
             menuStrip.Name = "menuStrip";
-            menuStrip.Size = new System.Drawing.Size(427, 25);
+            menuStrip.Size = new System.Drawing.Size(427, 24);
             menuStrip.TabIndex = 0;
             menuStrip.Text = "menuStrip1";
             // 
@@ -125,54 +128,54 @@
             this.FileSpearator,
             quitFile});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // newGameFile
             // 
             newGameFile.Name = "newGameFile";
             newGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            newGameFile.Size = new System.Drawing.Size(202, 22);
+            newGameFile.Size = new System.Drawing.Size(189, 22);
             newGameFile.Text = "&New Game";
             // 
             // openGameFile
             // 
             openGameFile.Name = "openGameFile";
             openGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            openGameFile.Size = new System.Drawing.Size(202, 22);
+            openGameFile.Size = new System.Drawing.Size(189, 22);
             openGameFile.Text = "&Open Game...";
             openGameFile.Click += new System.EventHandler(this.OpenGameFile_Click);
             // 
             // menuSeparator
             // 
             this.menuSeparator.Name = "menuSeparator";
-            this.menuSeparator.Size = new System.Drawing.Size(199, 6);
+            this.menuSeparator.Size = new System.Drawing.Size(186, 6);
             // 
             // saveGameFile
             // 
             saveGameFile.Name = "saveGameFile";
             saveGameFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            saveGameFile.Size = new System.Drawing.Size(202, 22);
+            saveGameFile.Size = new System.Drawing.Size(189, 22);
             saveGameFile.Text = "&Save Game";
             saveGameFile.Click += new System.EventHandler(this.SaveGameFile_Click);
             // 
             // saveGameFileAs
             // 
             saveGameFileAs.Name = "saveGameFileAs";
-            saveGameFileAs.Size = new System.Drawing.Size(202, 22);
+            saveGameFileAs.Size = new System.Drawing.Size(189, 22);
             saveGameFileAs.Text = "Save &As...";
             saveGameFileAs.Click += new System.EventHandler(this.SaveGameFileAs_Click);
             // 
             // FileSpearator
             // 
             this.FileSpearator.Name = "FileSpearator";
-            this.FileSpearator.Size = new System.Drawing.Size(199, 6);
+            this.FileSpearator.Size = new System.Drawing.Size(186, 6);
             // 
             // quitFile
             // 
             quitFile.Name = "quitFile";
             quitFile.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            quitFile.Size = new System.Drawing.Size(202, 22);
+            quitFile.Size = new System.Drawing.Size(189, 22);
             quitFile.Text = "&Quit";
             quitFile.Click += new System.EventHandler(this.QuitFile_Click);
             // 
@@ -181,13 +184,13 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zorkMapToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
             // zorkMapToolStripMenuItem
             // 
             this.zorkMapToolStripMenuItem.Name = "zorkMapToolStripMenuItem";
-            this.zorkMapToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.zorkMapToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.zorkMapToolStripMenuItem.Text = "Zork Map...";
             // 
             // startLocationLabel
@@ -310,10 +313,10 @@
             this.projectTab.Controls.Add(this.tabPage5);
             this.projectTab.Controls.Add(this.projectSettings);
             this.projectTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.projectTab.Location = new System.Drawing.Point(0, 25);
+            this.projectTab.Location = new System.Drawing.Point(0, 24);
             this.projectTab.Name = "projectTab";
             this.projectTab.SelectedIndex = 0;
-            this.projectTab.Size = new System.Drawing.Size(427, 549);
+            this.projectTab.Size = new System.Drawing.Size(427, 550);
             this.projectTab.TabIndex = 1;
             // 
             // tabPage5
@@ -324,7 +327,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(419, 523);
+            this.tabPage5.Size = new System.Drawing.Size(419, 524);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Room Properties";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -412,12 +415,12 @@
             // 
             // roomProperties
             // 
-            this.roomProperties.Controls.Add(this.directionControl5);
-            this.roomProperties.Controls.Add(this.directionControl4);
-            this.roomProperties.Controls.Add(this.directionControl3);
-            this.roomProperties.Controls.Add(this.directionControl2);
-            this.roomProperties.Controls.Add(this.directionControl1);
-            this.roomProperties.Controls.Add(this.directionControl);
+            this.roomProperties.Controls.Add(this.downDirectionControl);
+            this.roomProperties.Controls.Add(this.upDirectionControl);
+            this.roomProperties.Controls.Add(this.westDirectionControl);
+            this.roomProperties.Controls.Add(this.southDirectionControl);
+            this.roomProperties.Controls.Add(this.eastDirectionControl);
+            this.roomProperties.Controls.Add(this.northDirectionControl);
             this.roomProperties.Controls.Add(selectRoomLabel);
             this.roomProperties.Controls.Add(roomDescriptionLabel);
             this.roomProperties.Controls.Add(neighborsLabel);
@@ -436,12 +439,53 @@
             this.roomProperties.TabStop = false;
             this.roomProperties.Text = "Room Edit";
             // 
-            // directionControl
+            // downDirectionControl
             // 
-            this.directionControl.Location = new System.Drawing.Point(7, 270);
-            this.directionControl.Name = "directionControl";
-            this.directionControl.Size = new System.Drawing.Size(192, 26);
-            this.directionControl.TabIndex = 11;
+            this.downDirectionControl.Directions = Zork.Common.Direction.DOWN;
+            this.downDirectionControl.Location = new System.Drawing.Point(201, 334);
+            this.downDirectionControl.Name = "downDirectionControl";
+            this.downDirectionControl.Size = new System.Drawing.Size(192, 26);
+            this.downDirectionControl.TabIndex = 16;
+            // 
+            // directionControl4
+            // 
+            this.upDirectionControl.Directions = Zork.Common.Direction.UP;
+            this.upDirectionControl.Location = new System.Drawing.Point(201, 302);
+            this.upDirectionControl.Name = "upDirectionControl";
+            this.upDirectionControl.Size = new System.Drawing.Size(192, 26);
+            this.upDirectionControl.TabIndex = 15;
+            // 
+            // westDirectionControl
+            // 
+            this.westDirectionControl.Directions = Zork.Common.Direction.WEST;
+            this.westDirectionControl.Location = new System.Drawing.Point(201, 270);
+            this.westDirectionControl.Name = "westDirectionControl";
+            this.westDirectionControl.Size = new System.Drawing.Size(192, 26);
+            this.westDirectionControl.TabIndex = 14;
+            // 
+            // southDirectionControl
+            // 
+            this.southDirectionControl.Directions = Zork.Common.Direction.SOUTH;
+            this.southDirectionControl.Location = new System.Drawing.Point(6, 334);
+            this.southDirectionControl.Name = "southDirectionControl";
+            this.southDirectionControl.Size = new System.Drawing.Size(192, 26);
+            this.southDirectionControl.TabIndex = 13;
+            // 
+            // eastDirectionControl
+            // 
+            this.eastDirectionControl.Directions = Zork.Common.Direction.EAST;
+            this.eastDirectionControl.Location = new System.Drawing.Point(7, 302);
+            this.eastDirectionControl.Name = "eastDirectionControl";
+            this.eastDirectionControl.Size = new System.Drawing.Size(192, 26);
+            this.eastDirectionControl.TabIndex = 12;
+            // 
+            // northDirectionControl
+            // 
+            this.northDirectionControl.Directions = Zork.Common.Direction.NORTH;
+            this.northDirectionControl.Location = new System.Drawing.Point(7, 270);
+            this.northDirectionControl.Name = "northDirectionControl";
+            this.northDirectionControl.Size = new System.Drawing.Size(192, 26);
+            this.northDirectionControl.TabIndex = 11;
             // 
             // roomDescriptionTextBox
             // 
@@ -523,7 +567,7 @@
             this.projectSettings.Location = new System.Drawing.Point(4, 22);
             this.projectSettings.Name = "projectSettings";
             this.projectSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.projectSettings.Size = new System.Drawing.Size(419, 523);
+            this.projectSettings.Size = new System.Drawing.Size(419, 524);
             this.projectSettings.TabIndex = 1;
             this.projectSettings.Text = "Project Settings";
             this.projectSettings.UseVisualStyleBackColor = true;
@@ -546,6 +590,13 @@
             this.saveFileDialog.Filter = "JSON Files|*.json";
             this.saveFileDialog.Title = "Save World as";
             // 
+            // directionControl
+            // 
+            this.directionControl.Location = new System.Drawing.Point(7, 270);
+            this.directionControl.Name = "directionControl";
+            this.directionControl.Size = new System.Drawing.Size(192, 26);
+            this.directionControl.TabIndex = 11;
+            // 
             // directionControl1
             // 
             this.directionControl1.Location = new System.Drawing.Point(7, 302);
@@ -559,27 +610,6 @@
             this.directionControl2.Name = "directionControl2";
             this.directionControl2.Size = new System.Drawing.Size(192, 26);
             this.directionControl2.TabIndex = 13;
-            // 
-            // directionControl3
-            // 
-            this.directionControl3.Location = new System.Drawing.Point(201, 270);
-            this.directionControl3.Name = "directionControl3";
-            this.directionControl3.Size = new System.Drawing.Size(192, 26);
-            this.directionControl3.TabIndex = 14;
-            // 
-            // directionControl4
-            // 
-            this.directionControl4.Location = new System.Drawing.Point(201, 302);
-            this.directionControl4.Name = "directionControl4";
-            this.directionControl4.Size = new System.Drawing.Size(192, 26);
-            this.directionControl4.TabIndex = 15;
-            // 
-            // directionControl5
-            // 
-            this.directionControl5.Location = new System.Drawing.Point(201, 334);
-            this.directionControl5.Name = "directionControl5";
-            this.directionControl5.Size = new System.Drawing.Size(192, 26);
-            this.directionControl5.TabIndex = 16;
             // 
             // ZorkGUI
             // 
@@ -648,12 +678,15 @@
         private System.Windows.Forms.BindingSource gameViewModelBindingSource;
         private System.Windows.Forms.BindingSource startingRoomBindingSource;
         private System.Windows.Forms.BindingSource neighborsNamesBindingSource;
+        private DirectionControl.DirectionControl northDirectionControl;
+        private DirectionControl.DirectionControl downDirectionControl;
+        private DirectionControl.DirectionControl upDirectionControl;
+        private DirectionControl.DirectionControl westDirectionControl;
+        private DirectionControl.DirectionControl southDirectionControl;
+        private DirectionControl.DirectionControl eastDirectionControl;
         private DirectionControl.DirectionControl directionControl;
-        private DirectionControl.DirectionControl directionControl5;
-        private DirectionControl.DirectionControl directionControl4;
-        private DirectionControl.DirectionControl directionControl3;
-        private DirectionControl.DirectionControl directionControl2;
         private DirectionControl.DirectionControl directionControl1;
+        private DirectionControl.DirectionControl directionControl2;
     }
 }
 

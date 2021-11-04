@@ -7,8 +7,12 @@ namespace Zork.Builder
 {
     internal class GameViewModel: INotifyPropertyChanged
     {
+#pragma warning disable CS0067
         public event PropertyChangedEventHandler PropertyChanged;
+#pragma warning restore CS0067
+
         public BindingList<Room> Rooms { get; set; }
+
         public string StartingLocation { get; set; }
         public string WelcomeMessage { get; set; }
         public string ExitMessage { get; set; }
@@ -20,11 +24,15 @@ namespace Zork.Builder
                 if (_game != value)
                 {
                     _game = value;
+
                     if (_game != null)
                     {
                        StartingLocation = _game.StartingLocation;
+
                        WelcomeMessage = _game.WelcomeMessage;
+
                        ExitMessage = _game.ExitMessage;
+
                        Rooms = new BindingList<Room>(_game.World.Rooms);
                     }
                     else
@@ -41,8 +49,6 @@ namespace Zork.Builder
         }
 
         public static string Filename { get; internal set; }
-
-        private Game _game;
 
         public void SaveWorld()
         {
@@ -63,6 +69,7 @@ namespace Zork.Builder
                 serializer.Serialize(jsonWriter, _game);
             }
         }
+
+        private Game _game;
     }
 }
-

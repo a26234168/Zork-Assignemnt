@@ -7,14 +7,14 @@ namespace Zork.Common
 {
     public class World: INotifyPropertyChanged
     {
+#pragma warning disable CS0067
         public event PropertyChangedEventHandler PropertyChanged;
+#pragma warning restore CS0067
 
-        //public Room[] Rooms { get; set; }
         public List<Room> Rooms { get; set; }
 
         public World()
         {
-            //Rooms = new Room[] { };
             Rooms = new List<Room>();
         }
 
@@ -24,6 +24,7 @@ namespace Zork.Common
         private void Ondeserialized(StreamingContext context)
         {
             RoomsByName = new Dictionary<string, Room>();
+
             foreach (Room room in Rooms)
             {
                 RoomsByName.Add(room.Name, room);

@@ -28,32 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Directionss = new System.Windows.Forms.TextBox();
-            this.neighbor = new System.Windows.Forms.ComboBox();
+            this.directionsDropDown = new System.Windows.Forms.TextBox();
+            this.neighborsDropDown = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // Directionss
+            // directionsDropDown
             // 
-            this.Directionss.Location = new System.Drawing.Point(0, 0);
-            this.Directionss.Name = "Directionss";
-            this.Directionss.ReadOnly = true;
-            this.Directionss.Size = new System.Drawing.Size(68, 20);
-            this.Directionss.TabIndex = 0;
+            this.directionsDropDown.Location = new System.Drawing.Point(0, 0);
+            this.directionsDropDown.Name = "directionsDropDown";
+            this.directionsDropDown.ReadOnly = true;
+            this.directionsDropDown.Size = new System.Drawing.Size(68, 20);
+            this.directionsDropDown.TabIndex = 0;
             // 
-            // neighbor
+            // neighborsDropDown
             // 
-            this.neighbor.FormattingEnabled = true;
-            this.neighbor.Location = new System.Drawing.Point(74, 0);
-            this.neighbor.Name = "neighbor";
-            this.neighbor.Size = new System.Drawing.Size(115, 21);
-            this.neighbor.TabIndex = 1;
+            this.neighborsDropDown.FormattingEnabled = true;
+            this.neighborsDropDown.Location = new System.Drawing.Point(74, 0);
+            this.neighborsDropDown.Name = "neighborsDropDown";
+            this.neighborsDropDown.Size = new System.Drawing.Size(115, 21);
+            this.neighborsDropDown.TabIndex = 1;
+            this.neighborsDropDown.SelectedIndexChanged += new System.EventHandler(this.NeighborsDropDown_SelectedIndexChanged);
             // 
             // DirectionControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.neighbor);
-            this.Controls.Add(this.Directionss);
+            this.Controls.Add(this.neighborsDropDown);
+            this.Controls.Add(this.directionsDropDown);
             this.Name = "DirectionControl";
             this.Size = new System.Drawing.Size(192, 26);
             this.ResumeLayout(false);
@@ -63,7 +64,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox Directionss;
-        private System.Windows.Forms.ComboBox neighbor;
+        private System.Windows.Forms.TextBox directionsDropDown;
+        private System.Windows.Forms.ComboBox neighborsDropDown;
     }
 }

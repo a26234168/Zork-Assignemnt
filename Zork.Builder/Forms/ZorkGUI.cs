@@ -5,12 +5,14 @@ using System.IO;
 using Newtonsoft.Json;
 using Zork.Common;
 using System.Reflection;
+using System.Collections.Generic;
 
 namespace Zork.Builder
 {
     public partial class ZorkGUI : Form
     {
         public static string AssemblyTitle = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyTitleAttribute>().Title;
+
         public string EditName
         {
             get => editRoomNameText.Text;
@@ -49,8 +51,20 @@ namespace Zork.Builder
         public ZorkGUI()
         {
             InitializeComponent();
+
             ViewModel = new GameViewModel();
+
             IsWorldLoaded = false;
+
+            _DirectionControlMap = new Dictionary<Direction, DirectionControl>
+               {
+                  { Direction.NORTH, northDirectionControl },
+                  { Direction.SOUTH, eastDirectionControl },
+                  { Direction.EAST, southDirectionControl },
+                  { Direction.WEST, westDirectionControl },
+                  { Direction.UP, upDirectionControl },
+                  { Direction.DOWN, downDirectionControl }
+            };
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -63,11 +77,6 @@ namespace Zork.Builder
                     ViewModel.Rooms.Add(room);
                 }
             }
-            /*
-            Room room = new Room() { Name = $"DefaultRoom{DefaultNameNumber}"};
-            ViewModel.Rooms.Add(room);
-            DefaultNameNumber++; 
-            */
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -78,11 +87,19 @@ namespace Zork.Builder
         private void CurrentRoomTextbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             removeButton.Enabled = currentRoomTextbox.SelectedItem != null;
+
+            Room selectedRoom = currentRoomTextbox.SelectedItem as Room;
+
+            foreach (var entry in _DirectionControlMap)
+            {
+                entry.Value.Room = selectedRoom;
+            }
         }
 
         private void EditRoomNameText_TextChanged(object sender, EventArgs e)
         {
             okButton.Enabled = !string.IsNullOrEmpty(EditName);
+
             clearButton.Enabled = !string.IsNullOrEmpty(EditName);
         }
 
@@ -96,10 +113,10 @@ namespace Zork.Builder
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 ViewModel.Game = JsonConvert.DeserializeObject<Game>(File.ReadAllText(openFileDialog.FileName));
+
                 GameViewModel.Filename = openFileDialog.FileName;
                 
                 IsWorldLoaded = true;
-
             }
         }
 
@@ -113,6 +130,7 @@ namespace Zork.Builder
             if (MessageBox.Show("Are you sure?", AssemblyTitle, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 ViewModel.Rooms.Remove((Room)selectDropDown.SelectedItem);
+
                 selectDropDown.SelectedItem = ViewModel.Rooms.FirstOrDefault();
             }
         }
@@ -127,11 +145,13 @@ namespace Zork.Builder
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 GameViewModel.Filename = saveFileDialog.FileName;
+
                 ViewModel.SaveWorld();
             }
         }
 
         private GameViewModel _viewModel;
         private bool isWorldLoaded;
+        private readonly Dictionary<Direction, DirectionControl> _DirectionControlMap;
     }
 }
