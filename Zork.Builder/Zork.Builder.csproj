@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DirectionControl\DirectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DirectionControl\DirectionControl.Designer.cs">
+      <DependentUpon>DirectionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddRoomForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DirectionControl\DirectionControl.resx">
+      <DependentUpon>DirectionControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddRoomForm.resx">
       <DependentUpon>AddRoomForm.cs</DependentUpon>
     </EmbeddedResource>
