@@ -18,5 +18,16 @@ namespace Zork.Builder.DirectionControl
             InitializeComponent();
         }
 
+
+        /*  public Direction Directions
+          {
+              get => _Direction;
+              set
+              {
+                  _Direction = value;
+                  Directionss.Text = value.ToString();
+              }
+          }
+        */
     }
 }
