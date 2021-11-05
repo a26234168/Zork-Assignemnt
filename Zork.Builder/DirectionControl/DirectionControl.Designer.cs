@@ -1,4 +1,6 @@
-﻿namespace Zork.Builder.DirectionControl
+﻿using System;
+
+namespace Zork.Builder.DirectionControl
 {
     partial class DirectionControl
     {
@@ -47,7 +49,6 @@
             this.neighborsDropDown.Name = "neighborsDropDown";
             this.neighborsDropDown.Size = new System.Drawing.Size(115, 21);
             this.neighborsDropDown.TabIndex = 1;
-            this.neighborsDropDown.SelectedIndexChanged += new System.EventHandler(this.NeighborsDropDown_SelectedIndexChanged);
             // 
             // DirectionControl
             // 
@@ -60,6 +61,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void NeighborsDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

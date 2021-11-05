@@ -56,15 +56,15 @@ namespace Zork.Builder
 
             IsWorldLoaded = false;
 
-            _DirectionControlMap = new Dictionary<Direction, DirectionControl>
-               {
-                  { Direction.NORTH, northDirectionControl },
-                  { Direction.SOUTH, eastDirectionControl },
-                  { Direction.EAST, southDirectionControl },
-                  { Direction.WEST, westDirectionControl },
-                  { Direction.UP, upDirectionControl },
-                  { Direction.DOWN, downDirectionControl }
-            };
+          //  _DirectionControlMap = new Dictionary<Direction, DirectionControl>
+          //     {
+          //        { Direction.NORTH, northDirectionControl },
+          //        { Direction.SOUTH, eastDirectionControl },
+          //        { Direction.EAST, southDirectionControl },
+          //        { Direction.WEST, westDirectionControl },
+          //        { Direction.UP, upDirectionControl },
+          //        { Direction.DOWN, downDirectionControl }
+          //  };
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -90,10 +90,10 @@ namespace Zork.Builder
 
             Room selectedRoom = currentRoomTextbox.SelectedItem as Room;
 
-            foreach (var entry in _DirectionControlMap)
-            {
-                entry.Value.Room = selectedRoom;
-            }
+          // foreach (var entry in _DirectionControlMap)
+          // {
+          //     entry.Value.Room = selectedRoom;
+          // }
         }
 
         private void EditRoomNameText_TextChanged(object sender, EventArgs e)
@@ -152,6 +152,6 @@ namespace Zork.Builder
 
         private GameViewModel _viewModel;
         private bool isWorldLoaded;
-        private readonly Dictionary<Direction, DirectionControl> _DirectionControlMap;
+     //   private readonly Dictionary<Direction, DirectionControl> _DirectionControlMap;
     }
 }

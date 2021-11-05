@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using System.IO;
 namespace Zork.Builder
 {
-    internal class GameViewModel: INotifyPropertyChanged
+    internal class GameViewModel : INotifyPropertyChanged
     {
 #pragma warning disable CS0067
         public event PropertyChangedEventHandler PropertyChanged;
@@ -13,9 +13,23 @@ namespace Zork.Builder
 
         public BindingList<Room> Rooms { get; set; }
 
-        public string StartingLocation { get; set; }
-        public string WelcomeMessage { get; set; }
-        public string ExitMessage { get; set; }
+        public string StartingLocation
+        {
+            get => _game.StartingLocation;
+            set => _game.StartingLocation = value;
+        }
+
+        public string WelcomeMessage
+        {
+            get => _game.WelcomeMessage;
+            set => _game.WelcomeMessage = value;
+        }
+
+        public string ExitMessage 
+        {
+            get => _game.ExitMessage;
+            set => _game.ExitMessage = value;
+        }
 
         public Game Game
         {
@@ -27,13 +41,13 @@ namespace Zork.Builder
 
                     if (_game != null)
                     {
-                       StartingLocation = _game.StartingLocation;
+                        StartingLocation = _game.StartingLocation;
 
-                       WelcomeMessage = _game.WelcomeMessage;
+                        WelcomeMessage = _game.WelcomeMessage;
 
-                       ExitMessage = _game.ExitMessage;
+                        ExitMessage = _game.ExitMessage;
 
-                       Rooms = new BindingList<Room>(_game.World.Rooms);
+                        Rooms = new BindingList<Room>(_game.World.Rooms);
                     }
                     else
                     {

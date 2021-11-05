@@ -60,12 +60,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.roomProperties = new System.Windows.Forms.GroupBox();
-            this.downDirectionControl = new Zork.Builder.DirectionControl.DirectionControl();
-            this.upDirectionControl = new Zork.Builder.DirectionControl.DirectionControl();
-            this.westDirectionControl = new Zork.Builder.DirectionControl.DirectionControl();
-            this.southDirectionControl = new Zork.Builder.DirectionControl.DirectionControl();
-            this.eastDirectionControl = new Zork.Builder.DirectionControl.DirectionControl();
-            this.northDirectionControl = new Zork.Builder.DirectionControl.DirectionControl();
             this.roomDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
@@ -415,12 +409,6 @@
             // 
             // roomProperties
             // 
-            this.roomProperties.Controls.Add(this.downDirectionControl);
-            this.roomProperties.Controls.Add(this.upDirectionControl);
-            this.roomProperties.Controls.Add(this.westDirectionControl);
-            this.roomProperties.Controls.Add(this.southDirectionControl);
-            this.roomProperties.Controls.Add(this.eastDirectionControl);
-            this.roomProperties.Controls.Add(this.northDirectionControl);
             this.roomProperties.Controls.Add(selectRoomLabel);
             this.roomProperties.Controls.Add(roomDescriptionLabel);
             this.roomProperties.Controls.Add(neighborsLabel);
@@ -438,54 +426,6 @@
             this.roomProperties.TabIndex = 0;
             this.roomProperties.TabStop = false;
             this.roomProperties.Text = "Room Edit";
-            // 
-            // downDirectionControl
-            // 
-            this.downDirectionControl.Directions = Zork.Common.Direction.DOWN;
-            this.downDirectionControl.Location = new System.Drawing.Point(201, 334);
-            this.downDirectionControl.Name = "downDirectionControl";
-            this.downDirectionControl.Size = new System.Drawing.Size(192, 26);
-            this.downDirectionControl.TabIndex = 16;
-            // 
-            // directionControl4
-            // 
-            this.upDirectionControl.Directions = Zork.Common.Direction.UP;
-            this.upDirectionControl.Location = new System.Drawing.Point(201, 302);
-            this.upDirectionControl.Name = "upDirectionControl";
-            this.upDirectionControl.Size = new System.Drawing.Size(192, 26);
-            this.upDirectionControl.TabIndex = 15;
-            // 
-            // westDirectionControl
-            // 
-            this.westDirectionControl.Directions = Zork.Common.Direction.WEST;
-            this.westDirectionControl.Location = new System.Drawing.Point(201, 270);
-            this.westDirectionControl.Name = "westDirectionControl";
-            this.westDirectionControl.Size = new System.Drawing.Size(192, 26);
-            this.westDirectionControl.TabIndex = 14;
-            // 
-            // southDirectionControl
-            // 
-            this.southDirectionControl.Directions = Zork.Common.Direction.SOUTH;
-            this.southDirectionControl.Location = new System.Drawing.Point(6, 334);
-            this.southDirectionControl.Name = "southDirectionControl";
-            this.southDirectionControl.Size = new System.Drawing.Size(192, 26);
-            this.southDirectionControl.TabIndex = 13;
-            // 
-            // eastDirectionControl
-            // 
-            this.eastDirectionControl.Directions = Zork.Common.Direction.EAST;
-            this.eastDirectionControl.Location = new System.Drawing.Point(7, 302);
-            this.eastDirectionControl.Name = "eastDirectionControl";
-            this.eastDirectionControl.Size = new System.Drawing.Size(192, 26);
-            this.eastDirectionControl.TabIndex = 12;
-            // 
-            // northDirectionControl
-            // 
-            this.northDirectionControl.Directions = Zork.Common.Direction.NORTH;
-            this.northDirectionControl.Location = new System.Drawing.Point(7, 270);
-            this.northDirectionControl.Name = "northDirectionControl";
-            this.northDirectionControl.Size = new System.Drawing.Size(192, 26);
-            this.northDirectionControl.TabIndex = 11;
             // 
             // roomDescriptionTextBox
             // 
@@ -592,22 +532,28 @@
             // 
             // directionControl
             // 
+            this.directionControl.CurrentRoom = null;
             this.directionControl.Location = new System.Drawing.Point(7, 270);
             this.directionControl.Name = "directionControl";
+            this.directionControl.Room = null;
             this.directionControl.Size = new System.Drawing.Size(192, 26);
             this.directionControl.TabIndex = 11;
             // 
             // directionControl1
             // 
+            this.directionControl1.CurrentRoom = null;
             this.directionControl1.Location = new System.Drawing.Point(7, 302);
             this.directionControl1.Name = "directionControl1";
+            this.directionControl1.Room = null;
             this.directionControl1.Size = new System.Drawing.Size(192, 26);
             this.directionControl1.TabIndex = 12;
             // 
             // directionControl2
             // 
+            this.directionControl2.CurrentRoom = null;
             this.directionControl2.Location = new System.Drawing.Point(6, 334);
             this.directionControl2.Name = "directionControl2";
+            this.directionControl2.Room = null;
             this.directionControl2.Size = new System.Drawing.Size(192, 26);
             this.directionControl2.TabIndex = 13;
             // 
@@ -678,12 +624,6 @@
         private System.Windows.Forms.BindingSource gameViewModelBindingSource;
         private System.Windows.Forms.BindingSource startingRoomBindingSource;
         private System.Windows.Forms.BindingSource neighborsNamesBindingSource;
-        private DirectionControl.DirectionControl northDirectionControl;
-        private DirectionControl.DirectionControl downDirectionControl;
-        private DirectionControl.DirectionControl upDirectionControl;
-        private DirectionControl.DirectionControl westDirectionControl;
-        private DirectionControl.DirectionControl southDirectionControl;
-        private DirectionControl.DirectionControl eastDirectionControl;
         private DirectionControl.DirectionControl directionControl;
         private DirectionControl.DirectionControl directionControl1;
         private DirectionControl.DirectionControl directionControl2;
