@@ -2,7 +2,6 @@
 using System;
 using System.ComponentModel;
 using System.Runtime.Serialization;
-using System.Collections.Generic;
 
 namespace Zork.Common
 {
@@ -85,7 +84,6 @@ namespace Zork.Common
                             outputString = "";
                         }
 
-                       // outputString = Player.Move(direction) ? $"you moved {command}," : "The way is shut!";
                         Player.move++;
                         break;
 

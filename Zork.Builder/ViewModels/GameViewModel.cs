@@ -3,6 +3,7 @@ using System.ComponentModel;
 using Zork.Common;
 using Newtonsoft.Json;
 using System.IO;
+
 namespace Zork.Builder
 {
     internal class GameViewModel : INotifyPropertyChanged

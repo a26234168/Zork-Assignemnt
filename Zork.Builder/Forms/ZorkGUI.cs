@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Zork.Common;
 using System.Reflection;
 using System.Collections.Generic;
+using Zork.Builder.Controls;
 
 namespace Zork.Builder
 {
@@ -35,19 +36,6 @@ namespace Zork.Builder
             set => selectDropDown.Text = value;
         }
 
-        private GameViewModel ViewModel 
-        {
-            get => _viewModel;
-            set
-            {
-                if(_viewModel != value)
-                {
-                    _viewModel = value;
-                    gameViewModelBindingSource.DataSource = _viewModel;
-                }
-            }
-        }
-
         public ZorkGUI()
         {
             InitializeComponent();
@@ -56,15 +44,28 @@ namespace Zork.Builder
 
             IsWorldLoaded = false;
 
-          //  _DirectionControlMap = new Dictionary<Direction, DirectionControl>
-          //     {
-          //        { Direction.NORTH, northDirectionControl },
-          //        { Direction.SOUTH, eastDirectionControl },
-          //        { Direction.EAST, southDirectionControl },
-          //        { Direction.WEST, westDirectionControl },
-          //        { Direction.UP, upDirectionControl },
-          //        { Direction.DOWN, downDirectionControl }
-          //  };
+          _NeighborsControlMap = new Dictionary<Direction, NeighborsControl>
+            {
+                  { Direction.NORTH, northNeighborsControl },
+                  { Direction.SOUTH, eastNeighborsControl },
+                  { Direction.EAST, southNeighborsControl },
+                  { Direction.WEST, westNeighborsControl },
+                  { Direction.UP, upNeighborsControl },
+                  { Direction.DOWN, downNeighborsControl }
+            };
+        }
+
+        private GameViewModel ViewModel
+        {
+            get => _viewModel;
+            set
+            {
+                if (_viewModel != value)
+                {
+                    _viewModel = value;
+                    gameViewModelBindingSource.DataSource = _viewModel;
+                }
+            }
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -81,7 +82,7 @@ namespace Zork.Builder
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Not Implemented. Type Inside of TextBox Instead.");
         }
 
         private void CurrentRoomTextbox_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,10 +91,10 @@ namespace Zork.Builder
 
             Room selectedRoom = currentRoomTextbox.SelectedItem as Room;
 
-          // foreach (var entry in _DirectionControlMap)
-          // {
-          //     entry.Value.Room = selectedRoom;
-          // }
+           foreach (KeyValuePair<Direction, NeighborsControl> entry in _NeighborsControlMap)
+           {
+               entry.Value.Room = selectedRoom;
+           }
         }
 
         private void EditRoomNameText_TextChanged(object sender, EventArgs e)
@@ -105,7 +106,7 @@ namespace Zork.Builder
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Not Implemented. Type Inside of TextBox Instead.");
         }
 
         private void OpenGameFile_Click(object sender, EventArgs e)
@@ -150,8 +151,14 @@ namespace Zork.Builder
             }
         }
 
-        private GameViewModel _viewModel;
+        private void newGameFile_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("We spent hours trying to figure this out but couldn't in time. We did genuinely try, though");
+        }
+
+       private GameViewModel _viewModel;
         private bool isWorldLoaded;
-     //   private readonly Dictionary<Direction, DirectionControl> _DirectionControlMap;
+
+        private readonly Dictionary<Direction, NeighborsControl> _NeighborsControlMap;
     }
 }

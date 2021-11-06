@@ -28,8 +28,6 @@ namespace Zork.Common
             foreach (Room room in Rooms)
             {
                 RoomsByName.Add(room.Name, room);
-                //Added
-                room.BuildNeighborsFromNames(Rooms);
             }
 
             foreach (Room room in Rooms)
